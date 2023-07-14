@@ -15,10 +15,18 @@
 #header_icon
 {
     width: 320px;
-    height: 60px;
+    height: 150px;
     margin-left: 13%;
     transition: .25s ease;
-    margin-top: 1%;
+    scale: 1.7;
+    margin-top: -1%;
+}
+
+
+#header_icon:hover
+{
+cursor: pointer;
+scale: 2.0;
 }
 
 #header ul
@@ -48,10 +56,4 @@
 #main_links
 {
 	width: 90%;
-}
-
-#header_icon:hover
-{
-	cursor: pointer;
-	scale: 1.3;
 }
