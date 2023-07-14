@@ -1,5 +1,17 @@
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 #main_home
 {
+	animation: zoomIn 1s forwards;
 	flex-direction: column;
 }
 
@@ -31,4 +43,5 @@
 #main_home button:hover
 {
 	scale: 1.2;
+	cursor: pointer;
 }

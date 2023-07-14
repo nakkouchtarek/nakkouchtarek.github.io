@@ -19,3 +19,8 @@
 {
 	list-style-type: none;  
 }
+
+#main_home
+{
+	transform: translateY(200%);
+}

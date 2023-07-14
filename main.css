@@ -21,4 +21,5 @@ body
 	border-radius: 25px;
 	box-shadow: 10px 10px;
 	background-color: white;
+  	transition: transform 1.2s ease-in-out;
 }

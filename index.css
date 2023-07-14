@@ -50,3 +50,9 @@
 	margin-bottom: 10%;
 	font-size: 30px;
 }
+
+#main_home
+{
+	transform: translateX(-150%);
+}
+
