@@ -1,0 +1,21 @@
+#main_home h1
+{
+	width: 100%;
+	font-size: 40px;
+	margin-left: 18%;
+}
+
+#main_home h2
+{
+	margin-left: 24%;
+}
+
+#main_home
+{
+	flex-direction: column;
+}
+
+#main_home ul
+{
+	list-style-type: none;  
+}

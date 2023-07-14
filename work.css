@@ -1,0 +1,34 @@
+#main_home img
+{
+	width: 270px;
+	height: 50px;
+}
+
+.grouper
+{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+.site_bubble
+{
+	padding: 2%;
+	margin: 5%;
+	border: solid;
+	border-radius: 15px;
+	box-shadow: 10px 10px;
+	transition: .25s ease;
+	margin-right: 50%;
+}
+
+.site_bubble:hover
+{
+	scale: 1.2;
+	cursor: pointer;
+}
+
+.site_bubble:first-child
+{
+	margin-left: 17%;
+}
