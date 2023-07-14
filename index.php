@@ -58,9 +58,9 @@
 
 		<br>
 
-		<img class="icon" src="./github.png" onclick="location.href='https://github.com/nakkouchtarek';" style="margin-left: 20%"/>
-		<img class="icon" src="./credly.svg" onclick="location.href='https://www.credly.com/users/tarek-nakkouch/badges';" />
-		<img class="icon" src="./linkedin.png" onclick="location.href='https://www.linkedin.com/in/tarek-nakkouch-0b5b8826a/';"/>
+		<img class="icon" src="./github.png" onclick="location.href='https://github.com';" style="margin-left: 20%"/>
+		<img class="icon" src="./credly.svg" onclick="location.href='https://credly.com';" />
+		<img class="icon" src="./linkedin.png" onclick="location.href='https://linkedin.com';"/>
 
 	</div>
 

@@ -14,19 +14,10 @@
 
 #header_icon
 {
-    width: 320px;
-    height: 150px;
+	width: 200px;
+    height: 100px;
     margin-left: 13%;
     transition: .25s ease;
-    scale: 1.7;
-    margin-top: -1%;
-}
-
-
-#header_icon:hover
-{
-cursor: pointer;
-scale: 2.0;
 }
 
 #header ul
@@ -56,4 +47,10 @@ scale: 2.0;
 #main_links
 {
 	width: 90%;
+}
+
+#header_icon:hover
+{
+	cursor: pointer;
+	scale: 1.3;
 }
