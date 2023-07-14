@@ -7,6 +7,11 @@
     transition: .25s ease;
 }
 
+#touch_button:hover
+{
+	cursor:pointer;
+}
+
 .icon:hover
 {
 	cursor: pointer;
