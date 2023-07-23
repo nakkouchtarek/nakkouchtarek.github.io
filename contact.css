@@ -13,18 +13,19 @@
 {
 	animation: zoomIn 1s forwards;
 	flex-direction: column;
+	display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #main_home h1
 {
 	font-size: 60px;
-	margin-left: 7%;
 }
 
 #main_home h2
 {
 	font-size: 45px;
-	margin-left: 28%;
 }
 
 #main_home button
@@ -35,8 +36,6 @@
 	border-radius: 15px;
 	background: white;
 	transition: .25s ease;
-	margin-left: 40%;
-	margin-top: 5%;
 }
 
 

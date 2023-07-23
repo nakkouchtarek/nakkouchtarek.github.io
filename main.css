@@ -5,8 +5,9 @@ html
 
 body
 {
-	background-image: url("bg2.png");
+	background-color: white;
 	background-size: cover;
+	min-width: 1700px;
 }
 
 #main_home
@@ -22,4 +23,12 @@ body
 	box-shadow: 10px 10px;
 	background-color: white;
   	transition: transform 1.2s ease-in-out;
+  align-items: center;
+  justify-content: center;
+}
+
+#main_home div
+{
+	margin-right: 10%;
+	width: 100%;
 }

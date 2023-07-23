@@ -40,11 +40,9 @@
 	</ul>
 
 </div>
-<img src='loading.gif' id='loading'/>
+
 <div id="main_home">
-	
 		<h1 style="font-size: 60px">Projects that I worked on: </h1>
-		
 </div>
 
 <script>
@@ -58,14 +56,11 @@
 		const response = await fetch("https://api.github.com/users/nakkouchtarek/repos");
 		const data = await response.json();
 		
-		for (var i = 0; i < data.length; i++){
+		for (var i = 0; i < data.length; i++)
+		{
 		  	document.getElementById("main_home").innerHTML += "<a href='" + data[i].html_url + "'> -> " + data[i].name + "</a>";
 		}
 
-		document.getElementById('loading').style.transform = 'translateX(0)';
-		await sleep(1000);
-		document.getElementById('loading').style.transform = 'translateX(450%)';
-		document.getElementById('main_home').style.marginTop = '-25%';
 		document.getElementById('main_home').style.transform = 'translateX(0)';
 	}
 
