@@ -70,8 +70,8 @@
        background-image: url('images/testo.jpg'); background-size: cover; background-position: center; color: white;">
 
               <div class="my-5">
-                <h2 class="text-center fw-bold mb-2" style="color: black; font-size: 64px; text-shadow: 2px 2px 2px limegreen;">Hi! I'm Tarek,</h2>
-                <h2 class="text-center fw-bold mb-2" style="color: limegreen; font-size: 50px;text-shadow: 2px 2px 2px black;">
+                <h2 class="text-center fw-bold mb-2" id="t1" style="color: black; text-shadow: 2px 2px 2px limegreen;">Hi! I'm Tarek,</h2>
+                <h2 class="text-center fw-bold mb-2" id="t2" style="color: limegreen; text-shadow: 2px 2px 2px black;">
                   <strong>I'm a third year computer science student, <br/>and a CyberSecurity Enthusiast</strong></h2>
                 <p class="lead text-muted mb-4">
 
@@ -94,12 +94,12 @@
 
       <main>
         <!-- About -->
-        <section id="about" class="text-center py-5" style="height: 100vh;display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <section id="about" class="text-center py-5" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
           <div class="container py-5">
             <div class="row justify-content-center">
               <h2 class="fw-bold" style="font-size: 64px;">About</h2>
               <p class="lead text-muted mb-5">
-                I am a very motivated student that wants to learn as much as possible especially when it comes to cybersecurity.<br>
+                Here's what I have learned throughout my career: <br>
               </p>
             </div>
           </div>
@@ -109,26 +109,31 @@
                 <div class="d-flex mb-5 about">
                   <span class="material-icons-outlined m-auto">code</span>
                 </div>
-                <h5>Programming Languages</h5>
-                <p class="text-muted mb-0">
-                  I have dabbled in quite a lot of languages, a lot of which I'm fairly comfortable on like : Python, Java, C, C++, Javascript...
-                  I have some experience with Assembly in 16, 32 and 64 bits writing my own OS, PHP in some CMS and web developement, I'm an avid Linux user
-                  so Bash scripting is always there, SQL for databases and looking to integrate Rust to my arsenal.<br>
-                  When it comes to databases, 
-                  For the most part I have dealt with MySQL and OracleDB, but I have dealt with GraphQL, Postgresql while playing CTF's or Bug Bounty.
-                </p>
+                <h5>Programming Languages / Databases</h5>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Python</li>
+                  <li class="list-group-item">Java</li>
+                  <li class="list-group-item">C</li>
+                  <li class="list-group-item">C++</li>
+                  <li class="list-group-item">Javascript</li>
+                  <li class="list-group-item">PHP</li>
+                  <li class="list-group-item">Assembly 16,32 and 64bits</li>
+                  <li class="list-group-item">Bash</li>
+                  <li class="list-group-item">MySQL</li>
+                  <li class="list-group-item">OracleDB</li>
+                </ul>
               </div>
 
               <div class="col-lg-4 mx-auto mb-5">
                 <div class="d-flex mb-5 about">
-                  <span class="material-icons-outlined m-auto">code</span>
+                  <span class="material-icons-outlined m-auto">work</span>
                 </div>
-                <h5>Work</h5>
-                <p class="text-muted mb-0">
-                  -> Worked on developing two wordpress sites, frontend and backend while on my first internship at WATTSC. <br>
-                  -> Worked on several bug bounty programs through HackerOne and BugCrowd, mostly in web application security.<br>
-                  -> Made a Pharmacy App called <a href="https://play.google.com/store/apps/details?id=com.pharmamaroc.application">PharmaMaroc</a> for android. 
-                </p>
+                <h5>Experience</h5>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Worked on developing two wordpress sites, frontend and backend while on my first internship at WATTSC.</li>
+                  <li class="list-group-item">Worked on several bug bounty programs through HackerOne and BugCrowd, mostly in web application security.</li>
+                  <li class="list-group-item">Made a Pharmacy App called <a href="https://play.google.com/store/apps/details?id=com.pharmamaroc.application">PharmaMaroc</a> for android written in Java.</li>
+                </ul>
               </div>
 
               <div class="col-lg-4 mx-auto mb-5">
@@ -136,16 +141,16 @@
                   <span class="material-icons-outlined m-auto">settings</span>
                 </div>
                 <h5>Skills</h5>
-                <p class="text-muted mb-0">
-                  -> Programming and databases ( Details mentioned before ) <br/>
-                  -> Operating Systems : Linux and Windows<br/>
-                  -> Network administration and security<br/>
-                  -> Mobile and full-stack web developement<br/>
-                  -> CMS developement<br/>
-                  -> Ethical Hacking<br/>
-                  -> Red Team<br/>
-                  -> Software Design<br/>
-                </p>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Programming and databases</li>
+                  <li class="list-group-item">Operating Systems : Linux and Windows</li>
+                  <li class="list-group-item">Network administration and security</li>
+                  <li class="list-group-item">Network architecture</li>
+                  <li class="list-group-item">Mobile developement</li>
+                  <li class="list-group-item">Full stack web developement</li>
+                  <li class="list-group-item">CMS developement</li>
+                  <li class="list-group-item">Ethical Hacking</li>
+                </ul>
               </div>
 
             </div>
@@ -156,11 +161,12 @@
         <hr>
 
         <!-- Projects -->
-        <section id="projects" class="text-center py-5" style="height: 100vh;display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <section id="projects" class="text-center py-5" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
           <div class="container py-5">
             <div class="row justify-content-center">
               <h2 class="fw-bold" style="font-size: 64px;">Projects</h2>
-              <p class="lead text-muted mb-5">View some of my latest projects</p>
+              <p class="lead text-muted mb-5">My projects we're always based on learning and discover new concepts and fields each time.
+              </p>
             </div>
           </div>
           <div class="container mb-5">
@@ -236,6 +242,83 @@
                     <a
                       class="btn btn-outline-success btn-sm text-uppercase"
                       href="https://github.com/nakkouchtarek/PlatformerMultiplayer"
+                      target="_blank"
+                    >
+                      <span class="material-icons-outlined me-1">code</span>
+                      Source Code
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 mx-auto mb-5">
+                <div class="card h-100 shadow-lg border-0 bg-light">
+                  <img class="card-img-top" src="images/arduino.png" alt="Project 3">
+                  <div class="card-body p-4">
+                    <h5 class="card-title mb-3">ArduinoBluetoothPC</h5>
+                    <div class="mb-2">
+                      <div class="badge bg-success rounded-pill">Python</div>
+                    </div>
+                    <p class="card-text">
+                      A python program that allows you to control your arduino car from your PC using your keyboard using a bluetooth socket.
+                    </p>
+                  </div>
+                  <div class="card-footer bg-transparent mb-3">
+                    <a
+                      class="btn btn-outline-success btn-sm text-uppercase"
+                      href="https://github.com/nakkouchtarek/ArduinoBluetoothPC"
+                      target="_blank"
+                    >
+                      <span class="material-icons-outlined me-1">code</span>
+                      Source Code
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 mx-auto mb-5">
+                <div class="card h-100 shadow-lg border-0 bg-light">
+                  <img class="card-img-top" src="images/analyzer.png" alt="Project 3">
+                  <div class="card-body p-4">
+                    <h5 class="card-title mb-3">NetworkAnalyzer</h5>
+                    <div class="mb-2">
+                      <div class="badge bg-success rounded-pill">Python</div>
+                    </div>
+                    <p class="card-text">
+                      Python program that analyzes your traffic per address and packet using scapy.
+                    </p>
+                  </div>
+                  <div class="card-footer bg-transparent mb-3">
+                    <a
+                      class="btn btn-outline-success btn-sm text-uppercase"
+                      href="https://github.com/nakkouchtarek/NetworkAnalyzer"
+                      target="_blank"
+                    >
+                      <span class="material-icons-outlined me-1">code</span>
+                      Source Code
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 mx-auto mb-5">
+                <div class="card h-100 shadow-lg border-0 bg-light">
+                  <img class="card-img-top" src="images/allocator.png" alt="Project 3">
+                  <div class="card-body p-4">
+                    <h5 class="card-title mb-3">CustomAllocatorC</h5>
+                    <div class="mb-2">
+                      <div class="badge bg-success rounded-pill">C</div>
+                    </div>
+                    <p class="card-text">
+                      A Custom Allocator made in C made to tackle some problems that exist with the actual memory allocation libraries in C.
+                      Some like the randomness of addresses between each allocations which bother matrix calculations which I solve, the lack
+                      of defragmentation of memory which could prove to be quite inefficient when we mass free and alloc again and again.
+                    </p>
+                  </div>
+                  <div class="card-footer bg-transparent mb-3">
+                    <a
+                      class="btn btn-outline-success btn-sm text-uppercase"
+                      href="https://github.com/nakkouchtarek/CustomAllocatorC"
                       target="_blank"
                     >
                       <span class="material-icons-outlined me-1">code</span>
