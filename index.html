@@ -1,84 +1,269 @@
- <!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="main.css">
-<link rel="stylesheet" href="header.css">
-<link rel="stylesheet" href="index.css">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Nakkouch Tarek - Portfolio</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
 
-<title>Nakkouch Tarek - Portfolio</title>
-</head>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
-<body>
-<script src="script.js"></script>
+    <!-- Leaflet CSS -->
+    <link href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" rel="stylesheet">
 
-<div id="header">
-	<img src="./logo.png" onclick="location.href='./index.html';" id="header_icon"/>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-	<ul id="main_links">
-		<li>
-			<a href="./skills.html">Skills</a>
-		</li>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    
+    <div class="container-fluid px-0">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow" style="position: fixed; width: 100%; z-index:99999;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <span class="material-icons-outlined me-1">memory</span>
+            Nakkouch Tarek
+          </a>
+          <button
+            type="button"
+            class="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="container px-3">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link me-lg-3" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link me-lg-3" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link me-lg-3" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link me-lg-3" href="#contact">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
 
-		<li>
-			<a href="./career.html">Career</a>
-		</li>
+      <!-- Hero -->
+      <header class="bg-light py-5" style="height: 100vh;display: flex; flex-direction: column; align-items: center; justify-content: center;
+       background-image: url('images/testo.jpg'); background-size: cover; background-position: center; color: white;">
 
-		<li>
-			<a href="./work.html">Work</a>
-		</li>
+              <div class="my-5">
+                <h2 class="text-center fw-bold mb-2" style="color: black; font-size: 64px; text-shadow: 2px 2px 2px limegreen;">Hi! I'm Tarek,</h2>
+                <h2 class="text-center fw-bold mb-2" style="color: limegreen; font-size: 50px;text-shadow: 2px 2px 2px black;">
+                  <strong>I'm a third year computer science student, <br/>and a CyberSecurity Enthusiast</strong></h2>
+                <p class="lead text-muted mb-4">
 
-		<li>
-			<a href="./projects.html">Projects</a>
-		</li>
+                </p>
+                <div class="d-grid gap-3 d-sm-flex justify-content-center">
+                  <a class="btn btn-info btn-large text-uppercase" href="https://www.linkedin.com/in/tarek-nakkouch-0b5b8826a/">
+                    LinkedIn
+                    <i class="devicon-linkedin-plain"></i>
+                  </a>
+                  <a class="btn btn-dark btn-large text-uppercase" href="https://github.com/nakkouchtarek">
+                    Github
+                    <i class="devicon-github-plain"></i>
+                  </a>
+                </div>
 
-		<li>
-			<a href="./contact.html">Contact</a>
-		</li>
-	</ul>
+            </div>
 
-</div>
+      </header>
+      <!-- End Hero -->
 
-<center>
-<div id="main_home">
-	
-	<div id="main_home_1">
-		<h1>
-			Hello, 
-			<br>
-			My name is Tarek Nakkouch
-		</h1>
-		
-		<h2>
-			I'm a third year computer science student
-		</h2>
-		
-		 <button type="button" onclick="location.href='./contact.html';" id='touch_button'>Get in touch</button> 
+      <main>
+        <!-- About -->
+        <section id="about" class="text-center py-5" style="height: 100vh;display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div class="container py-5">
+            <div class="row justify-content-center">
+              <h2 class="fw-bold" style="font-size: 64px;">About</h2>
+              <p class="lead text-muted mb-5">
+                I am a very motivated student that wants to learn as much as possible especially when it comes to cybersecurity.<br>
+              </p>
+            </div>
+          </div>
+          <div class="container mb-5">
+            <div class="row">
+              <div class="col-lg-4 mx-auto mb-5">
+                <div class="d-flex mb-5 about">
+                  <span class="material-icons-outlined m-auto">code</span>
+                </div>
+                <h5>Programming Languages</h5>
+                <p class="text-muted mb-0">
+                  I have dabbled in quite a lot of languages, a lot of which I'm fairly comfortable on like : Python, Java, C, C++, Javascript...
+                  I have some experience with Assembly in 16, 32 and 64 bits writing my own OS, PHP in some CMS and web developement, I'm an avid Linux user
+                  so Bash scripting is always there, SQL for databases and looking to integrate Rust to my arsenal.<br>
+                  When it comes to databases, 
+                  For the most part I have dealt with MySQL and OracleDB, but I have dealt with GraphQL, Postgresql while playing CTF's or Bug Bounty.
+                </p>
+              </div>
 
-		<br>
+              <div class="col-lg-4 mx-auto mb-5">
+                <div class="d-flex mb-5 about">
+                  <span class="material-icons-outlined m-auto">code</span>
+                </div>
+                <h5>Work</h5>
+                <p class="text-muted mb-0">
+                  -> Worked on developing two wordpress sites, frontend and backend while on my first internship at WATTSC. <br>
+                  -> Worked on several bug bounty programs through HackerOne and BugCrowd, mostly in web application security.<br>
+                  -> Made a Pharmacy App called <a href="https://play.google.com/store/apps/details?id=com.pharmamaroc.application">PharmaMaroc</a> for android. 
+                </p>
+              </div>
 
-		<img class="icon" src="./github.png" onclick="location.href='https://github.com/nakkouchtarek';"/>
-		<img class="icon" src="./credly.svg" onclick="location.href='https://www.credly.com/users/tarek-nakkouch/badges';" />
-		<img class="icon" src="./linkedin.png" onclick="location.href='https://www.linkedin.com/in/tarek-nakkouch-0b5b8826a/';"/>
+              <div class="col-lg-4 mx-auto mb-5">
+                <div class="d-flex mb-5 about">
+                  <span class="material-icons-outlined m-auto">settings</span>
+                </div>
+                <h5>Skills</h5>
+                <p class="text-muted mb-0">
+                  -> Programming and databases ( Details mentioned before ) <br/>
+                  -> Operating Systems : Linux and Windows<br/>
+                  -> Network administration and security<br/>
+                  -> Mobile and full-stack web developement<br/>
+                  -> CMS developement<br/>
+                  -> Ethical Hacking<br/>
+                  -> Red Team<br/>
+                  -> Software Design<br/>
+                </p>
+              </div>
 
-	</div>
+            </div>
+          </div>
+        </section>
+        <!-- End About -->
 
-	<img src="./profile.jpg" id="profile" />
+        <hr>
 
-</div>
-</center>
-	
-<script type="text/javascript">
-	window.addEventListener('DOMContentLoaded', function() {
-  var mainHome = document.getElementById('main_home');
-  mainHome.style.transform = 'translateX(0)';
-});
-</script>
+        <!-- Projects -->
+        <section id="projects" class="text-center py-5" style="height: 100vh;display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div class="container py-5">
+            <div class="row justify-content-center">
+              <h2 class="fw-bold" style="font-size: 64px;">Projects</h2>
+              <p class="lead text-muted mb-5">View some of my latest projects</p>
+            </div>
+          </div>
+          <div class="container mb-5">
+            <div class="row">
+              <div class="col-lg-4 mx-auto mb-5">
+                <div class="card h-100 shadow-lg border-0 bg-light">
+                  <img class="card-img-top" src="images/freshos.png" alt="Project 1">
+                  <div class="card-body p-4">
+                    <h5 class="card-title mb-3">FreshOS</h5>
+                    <div class="mb-2">
+                      <div class="badge bg-success rounded-pill">Assembly</div>
+                      <div class="badge bg-success rounded-pill">C</div>
+                    </div>
+                    <p class="card-text">
+                      My own implementation of a 64 bit OS
+                    </p>
+                  </div>
+                  <div class="card-footer bg-transparent mb-3">
+                    <a
+                      class="btn btn-outline-success btn-sm text-uppercase"
+                      href="https://github.com/nakkouchtarek/FreshOS"
+                      target="_blank"
+                    >
+                      <span class="material-icons-outlined me-1">code</span>
+                      Source Code
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mx-auto mb-5">
+                <div class="card h-100 shadow-lg border-0 bg-light">
+                  <img class="card-img-top" src="images/kahoot.png" alt="Project 2">
+                  <div class="card-body p-4">
+                    <h5 class="card-title mb-3">BetterThanKahoot</h5>
+                    <div class="mb-2">
+                      <div class="badge bg-success rounded-pill">HTML</div>
+                      <div class="badge bg-success rounded-pill">CSS</div>
+                      <div class="badge bg-success rounded-pill">Vanilla Javascript</div>
+                      <div class="badge bg-success rounded-pill">Python</div>
+                      <div class="badge bg-success rounded-pill">FastAPI</div>
+                    </div>
+                    <p class="card-text">
+                      A Kahoot replica written from scratch, using multiple technologies and implements real time communication using sockets.
+                    </p>
+                  </div>
+                  <div class="card-footer bg-transparent mb-3">
+                    <a
+                      class="btn btn-outline-success btn-sm text-uppercase"
+                      href="https://github.com/nakkouchtarek/BetterThanKahoot"
+                      target="_blank"
+                    >
+                      <span class="material-icons-outlined me-1">code</span>
+                      Source Code
+                    </a>
+                  </div>
+                </div>
+              </div>
 
-</body>
+              <div class="col-lg-4 mx-auto mb-5">
+                <div class="card h-100 shadow-lg border-0 bg-light">
+                  <img class="card-img-top" src="images/sokoban.png" alt="Project 3">
+                  <div class="card-body p-4">
+                    <h5 class="card-title mb-3">PlatformerMultiplayer</h5>
+                    <div class="mb-2">
+                      <div class="badge bg-success rounded-pill">C</div>
+                    </div>
+                    <p class="card-text">
+                      A replica of the 80's game Sokoban, except with some new features such as a level editor,
+                      and even a made from scratch server that allows multiplayer for 2 players.
+                    </p>
+                  </div>
+                  <div class="card-footer bg-transparent mb-3">
+                    <a
+                      class="btn btn-outline-success btn-sm text-uppercase"
+                      href="https://github.com/nakkouchtarek/PlatformerMultiplayer"
+                      target="_blank"
+                    >
+                      <span class="material-icons-outlined me-1">code</span>
+                      Source Code
+                    </a>
+                  </div>
+                </div>
+              </div>
 
-</html> 
+            </div>
+          </div>
+        </section>
+        <!-- End Projects -->
 
+        <footer class="text-center py-4" id="contact">
+          <div class="container px-5 mb-2">Contact me at : nakkouchtarek@gmail.com</div>
+        </footer>
+
+      </main>
+    </div>
+
+    <hr>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>
