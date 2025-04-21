@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@400;700&family=Poppins:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./linux.png" type="image/png">
+    <title>Tarek Nakkouch - Portfolio</title>
+    <script>
+        WebFont.load({
+            google: {
+                families: ["Ubuntu:300"]
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="terminal-container">
+        <div class="terminal-bar">
+            <i class="fa fa-linux" id="windows-icon"> <a style="font-family: 'Chicago';font-size: 20px;">Tarek Nakkouch</a></i>
+            <div class="location-time">
+                <span>📍 Morocco, Casablanca</span>
+                <span id="current-time"></span>
+            </div>
+            <div class="window-controls">
+
+            </div>
+        </div>
+        <div class="terminal-body">
+            <div class="blog-window">
+                <div class="blog-header">
+                    <div class="blog-controls">
+                        <div class="blog-control blog-close"></div>
+                        <div class="blog-control blog-minimize"></div>
+                        <div class="blog-control blog-maximize"></div>
+                    </div>
+                </div>
+                <div class="blog-content" id="blog-content">
+                    <!-- Blog content will be loaded here -->
+                </div>
+            </div>
+            <div class="browser-window">
+                <div class="browser-header">
+                    <div class="browser-controls">
+                        <div class="browser-control browser-close"></div>
+                        <div class="browser-control browser-minimize"></div>
+                        <div class="browser-control browser-maximize"></div>
+                    </div>
+                    <div class="browser-navigation">
+                        <button class="nav-button" id="back-button">←</button>
+                        <button class="nav-button" id="forward-button">→</button>
+                        <button class="nav-button" id="refresh-button">↻</button>
+                        <div class="address-bar" id="address-bar"></div>
+                    </div>
+                </div>
+                <iframe class="browser-content" id="browser-frame"></iframe>
+            </div>
+
+            <!-- Add this new mac terminal window -->
+            <div class="mac-terminal-window" id="terminal1">
+                <div class="mac-terminal-header">
+                    <div class="mac-terminal-button mac-terminal-close"></div>
+                    <div class="mac-terminal-button mac-terminal-minimize"></div>
+                    <div class="mac-terminal-button mac-terminal-maximize"></div>
+                </div>
+                <div class="mac-terminal-content">
+                    <p class="terminal-command">user@portfolio:~$ <span style="color:white">neofetch</span></p>
+                    <div class="terminal-output">
+                        <pre class="ascii-art" style="color:lightgreen">
+⠀⢀⠔⠂⠉⠉⠉⠉⠑⠢⡄⣀⠔⠊⠁⠀⠒⠤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⡰⠁⠀⠀⠀⠀⢀⣀⣀⣀⠘⡇⠀⠀⠀⠀⠀⠀⠘⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠁⠀⠀⣠⠔⠉⠁⠀⠀⠀⠉⠉⠲⣤⠖⠒⠒⠒⠲⠬⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢣⠀⠀⠀⠀⠀⠀⠙⢦⡀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⣠⠔⣊⠭⠭⠭⠭⢭⣛⠩⣉⠲⣇⠀⠀⢀⣶⠶⢦⣶⢷⣤⡀⠀⠀⠀⠀
+⠀⠀⢸⣵⣉⡤⠤⢤⣤⣤⣤⣬⠵⠮⣶⣌⣇⠐⣫⣶⣭⣭⣍⡑⢼⠁⠀⠀⠀⠀
+⠀⠀⠀⠀⠈⣅⠲⣿⣞⣿⣉⣿⠀⠀⠘⡎⣇⡜⣿⣾⣿⣹⡇⠈⣽⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠓⠤⢈⣉⣛⣓⣂⣒⣊⡽⠂⢹⣛⠛⢛⠛⣒⣩⠞⠀⠀⠀⠀⠀
+⠀⠠⠤⠂⠀⠀⠀⠀⠀⠀⠀⠀⣀⠼⠁⠀⠀⠀⠈⠫⡁⠐⠛⠁⠱⡀⠀⠀⠀⠀
+⢠⢶⠭⠭⣄⣀⠀⠀⠀⠤⠒⠉⠁⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⢰⢻⠄⠀⠀⠀
+⠀⠘⢦⣙⠲⠤⣍⡉⠑⠒⠢⠤⠤⠤⣀⣀⣀⣀⣀⣀⣀⣀⣀⠔⣡⠊⠀⠀⠀⠀
+⠀⠀⠀⠈⠉⠢⢄⡈⠉⠁⠀⠀⠒⠒⠦⠤⠤⠤⠤⠤⠤⠤⠤⠊⡸⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠈⠙⠒⠂⠤⠤⠤⠤⢄⣀⣀⡤⠤⠤⢤⠤⠚⠅⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠤⠒⠓⢤⠞⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡠⢄⡠⢶⡁⠀⣀⣀⡀⢑⠢⣄⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣆⠀⠣⢶⠕⢋⢔⡵⠗⠁⠀⠈⠳⡀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢣⠀⠘⣖⡝⠁⠀⢀⠔⠀⠀⠀⠘⣆⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠀⠀⠈⠑⠤⢠⠃⠀⣠⠞⢀⠄⠈⢆
+                        </pre>
+                        <div class="system-info">
+                            <p><span class="info-label">First Name:</span> Tarek</p>
+                            <p><span class="info-label">Last Name:</span> Nakkouch</p>
+                            <p><span class="info-label">Uptime:</span> 22 years</p>
+                            <p><span class="info-label">Email:</span> nakkouchtarek@gmail.com</p>
+                            <p><span class="info-label">Message:</span> Hi I'm Tarek! I'm a Master's Student in Cybersecurity.<br><br>I'm open to work or projects. If interested, do contact me through Email or LinkedIn.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Second terminal -->
+            <div class="mac-terminal-window" id="terminal2">
+                <div class="mac-terminal-header">
+                    <div class="mac-terminal-button mac-terminal-close"></div>
+                    <div class="mac-terminal-button mac-terminal-minimize"></div>
+                    <div class="mac-terminal-button mac-terminal-maximize"></div>
+                </div>
+                <div class="mac-terminal-content">
+                    <p class="terminal-command">user@portfolio:~$ <span style="color:white">cat work-experience.txt</span></p>
+                    <div class="terminal-output">
+                        <div class="system-info">
+                            <p><span class="info-label">-> Cybersecurity Intern:</span> February 2024 - CIH Bank | Casablanca | 1 month</p>
+                            <ul>
+                                <li>Implemented <span style="color: #007BFF;">Wazuh XDR</span> with <span style="color: #007BFF;">Suricata IDS</span> Lab: Simulation, detection, and mitigation of cyberattacks</li>
+                                <li>Conducted a comparative analysis of <span style="color: #007BFF;">XDR</span> solutions to determine the most suitable one based on the company's needs</li>
+                                <li>Configured the <span style="color: #007BFF;">MISP CTI</span> platform and developed an open-source <span style="color: #007BFF;">Threat Hunting</span> tool to integrate into the platform</li>
+                            </ul>
+            
+                            <p><span class="info-label">-> Junior Developer:</span> June 2023 - WATTSC | Casablanca | 1 month</p>
+                            <ul>
+                                <li>Developed two custom <span style="color: #007BFF;">WordPress</span> sites with fully personalized features and <span style="color: #007BFF;">SEO</span> optimization</li>
+                                <li>Collected and processed data using <span style="color: #007BFF;">Python</span> and <span style="color: #007BFF;">Selenium</span> library</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mac-terminal-window" id="terminal3">
+                <div class="mac-terminal-header">
+                    <div class="mac-terminal-button mac-terminal-close"></div>
+                    <div class="mac-terminal-button mac-terminal-minimize"></div>
+                    <div class="mac-terminal-button mac-terminal-maximize"></div>
+                </div>
+                <div class="mac-terminal-content">
+                    <p class="terminal-command">user@portfolio:~$ <span style="color:white">cat skills-certifications.txt</span></p>
+                    <div class="terminal-output">
+                        <div class="system-info">
+                            
+                            <!-- Skills Section -->
+                            <p><span class="info-label" style="color: #32CD32;">🛠️ Skills:</span></p>
+                            <ul>
+                                <li><span style="color: #1E90FF; font-weight: bold;">Cybersecurity</span>: Network security, threat hunting, malware analysis, reverse engineering, penetration testing, SIEM, IDS/IPS, firewall configuration (Fortigate, PfSense), security tool development</li>
+                                <li><span style="color: #1E90FF; font-weight: bold;">Full-Stack Development</span>: Frontend (HTML/CSS/JS, React), backend (Python, Go, Spring Boot), databases (SQL/NoSQL)</li>
+                                <li><span style="color: #1E90FF; font-weight: bold;">Low-Level Programming</span>: OS development, kernel/driver development</li>
+                                <li><span style="color: #1E90FF; font-weight: bold;">Game/Protocol Reverse Engineering</span>: Network protocol analysis, tool development for game interaction</li>
+                                <li><span style="color: #1E90FF; font-weight: bold;">Machine Learning & Data Analysis</span>: Neural networks, NLP, Recommendation Systems, Data Extraction & Analysis, Deep Learning (DenseNet, ResNet)</li>
+                                <li><span style="color: #1E90FF; font-weight: bold;">IoT & Embedded Systems</span>: Arduino programming, Bluetooth integration with Python</li>
+                                <li><span style="color: #1E90FF; font-weight: bold;">DevOps & Cloud</span>: AWS, Hadoop, ELK stack</li>
+                                <li><span style="color: #1E90FF; font-weight: bold;">Networking</span>: Socket programming, WebSockets, network protocol spoofing, packet sniffing</li>
+                                <li><span style="color: #1E90FF; font-weight: bold;">QA & Testing</span>: Junit, JMeter</li>
+                                <li><span style="color: #1E90FF; font-weight: bold;">Browser Extensions</span>: Custom extension development</li>
+                            </ul>
+                            
+                            <!-- Technologies Section -->
+                            <p><span class="info-label" style="color: #32CD32;">⚙️ Technologies:</span></p>
+                            <ul>
+                                <li><span style="color: #FFD700; font-weight: bold;">Languages</span>: Python, Java, C, C++, JavaScript, PHP, Go, Assembly, SQL</li>
+                                <li><span style="color: #FFD700; font-weight: bold;">Frameworks/Libraries</span>: React, Spring Boot, Django, Flask</li>
+                                <li><span style="color: #FFD700; font-weight: bold;">Databases</span>: MySQL, MongoDB, OracleDB, PostgreSQL</li>
+                                <li><span style="color: #FFD700; font-weight: bold;">Security Tools</span>: Splunk, Wazuh, Snort, ModSecurity, Metasploit, Nessus, ELK, MISP</li>
+                                <li><span style="color: #FFD700; font-weight: bold;">Networking/Cloud</span>: AWS, Hadoop, PfSense, Fortigate, Socket/WebSocket APIs</li>
+                                <li><span style="color: #FFD700; font-weight: bold;">Game/OS Dev</span>: Android Studio, Sokoban-like engines, kernel/driver tools</li>
+                                <li><span style="color: #FFD700; font-weight: bold;">Other</span>: Active Directory, Arduino, Net, JUnit/JMeter, Browser Extensions</li>
+                            </ul>
+                            
+                            <!-- Languages Section -->
+                            <p><span class="info-label" style="color: #32CD32;">🌍 Languages:</span></p>
+                            <ul>
+                                <li><span style="color: #DC143C;">Arabic</span>: Native</li>
+                                <li><span style="color: #DC143C;">English</span>: Fluent</li>
+                                <li><span style="color: #DC143C;">French</span>: Fluent</li>
+                                <li><span style="color: #DC143C;">Spanish</span>: Elementary</li>
+                            </ul>
+            
+                            <!-- Certifications Section -->
+                            <p><span class="info-label" style="color: #32CD32;">🎓 Certifications:</span></p>
+                            <ul>
+                                <li><span style="color: #20B2AA; font-weight: bold;">IBM CyberSecurity Analyst Professional</span></li>
+                                <li><span style="color: #20B2AA; font-weight: bold;">Linguaskill Business C1</span></li>
+                                <li><span style="color: #20B2AA; font-weight: bold;">DALF C1</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+        <div class="icons-container">
+            <div class="desktop-icon" onclick="window.open('https\:\/\/linkedin.com/in/tarek-nakkouch', '_blank');">
+                <i class="fa fa-linkedin" style="font-size:48px; color: rgb(0, 195, 255)"></i>
+                <span>LinkedIn</span>
+            </div>
+            <div class="desktop-icon" onclick="window.open('https\:\/\/github.com/nakkouchtarek', '_blank');">
+                <i class="fa fa-github" style="font-size:48px; color: black"></i>
+                <span>Github</span>
+            </div>
+            <div class="desktop-icon" onclick="selectIcon(this)">
+                <i class="fa fa-code" id="projects" style="font-size:48px; color: black"></i>
+                <span>Projects</span>
+            </div>
+            <div class="desktop-icon" onclick="selectIcon(this)">
+                <i class="fa fa-firefox" id="blog" style="font-size:48px; color: orange"></i>
+                <span>Blog</span>
+            </div>
+            <div class="desktop-icon" id="portfolio-button" onclick="showTerminals()">
+                <i class="fa fa-user" style="font-size:48px; color: #4CAF50"></i>
+                <span>Portfolio</span>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./main.js"></script>
+</body>
+</html>

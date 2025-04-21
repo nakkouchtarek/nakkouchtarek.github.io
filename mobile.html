@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarek Nakkouch - Cybersecurity Expert</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00f7ff;
+            --secondary: #0a192f;
+            --light: #ccd6f6;
+            --dark: #020c1b;
+            --glass: rgba(10, 25, 47, 0.7);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--secondary);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(45deg, var(--dark), var(--secondary));
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 2rem;
+            background: var(--primary);
+            color: var(--secondary);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            position: relative;
+            text-align: center;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        /* Experience Cards */
+        .experience-card {
+            background: var(--glass);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 247, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .experience-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .experience-card p {
+            color: var(--light);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .experience-card ul {
+            list-style: none;
+        }
+
+        .experience-card ul li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .experience-card ul li i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: var(--glass);
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-item {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-item i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+
+        /* Project Cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--glass);
+            padding: 1.5rem;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .project-card p {
+            opacity: 0.8;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: var(--light);
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .experience-card, .skill-category, .project-card {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                padding: 0.6rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h4>Hi, my name is</h4>
+                <h1>Tarek Nakkouch</h1>
+                <h2>Cybersecurity Specialist & Full-Stack Developer</h2>
+                <p>Master's Student in Cybersecurity | Open to Opportunities</p>
+                <a href="#contact" class="btn">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="container">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-card">
+            <h3><i class="fas fa-briefcase"></i> Cybersecurity Intern @ CIH Bank</h3>
+            <p>Feb 2024 - Present | Casablanca, Morocco</p>
+            <ul>
+                <li><i class="fas fa-check"></i>Implemented Wazuh XDR with Suricata IDS Lab: Simulation, detection, and mitigation of cyberattacks.</li>
+                <li><i class="fas fa-check"></i>Conducted a comparative analysis of XDR solutions to determine the most suitable one based on the company's needs.</li>
+                <li><i class="fas fa-check"></i>Configured the MISP CTI platform and developed an open-source Threat Hunting tool to integrate into the platform.</li>
+            </ul>
+        </div>
+        <div class="experience-card">
+            <h3><i class="fas fa-briefcase"></i> Junior Developer @ WATTSC</h3>
+            <p>June 2023 | Casablanca, Morocco</p>
+            <ul>
+                <li><i class="fas fa-check"></i>Developed two custom WordPress sites with fully personalized features and SEO optimization.</li>
+                <li><i class="fas fa-check"></i>Collected and processed data using Python and Selenium library.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects" class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3><i class="fas fa-laptop-code"></i> Cyber Homelab</h3>
+                <p>Created a secure virtual homelab with Fortigate, PfSense, Splunk, Wazuh, ELK, Snort, and Active Directory. Implemented outer firewall with Fortigate, DMZ with honeypot (Cowrie), and OpenVPN for secure access.</p>
+            </div>
+            <div class="project-card">
+                <h3><i class="fas fa-code"></i> Framework C2 Web</h3>
+                <p>Developed a custom C2 client/server with a web interface in Go, HTML, CSS, and JS. Supports multiple clients and allows interaction directly from the web interface.</p>
+            </div>
+            <div class="project-card">
+                <h3><i class="fas fa-shield-alt"></i> Malware Crypter</h3>
+                <p>Created a malware crypter in C++ to obfuscate malware and bypass antivirus detection. Uses Base64 and XOR encryption to hide function names and dynamically load them during execution.</p>
+            </div>
+            <div class="project-card">
+                <h3><i class="fas fa-microchip"></i> Disk Serial Spoofer</h3>
+                <p>Developed a custom driver in C++ to spoof disk serial numbers. Hooks the disk driver's IO control to intercept queries and spoofs the serial number in responses.</p>
+            </div>
+            <div class="project-card">
+                <h3><i class="fas fa-terminal"></i> OS Development</h3>
+                <p>Built a 64-bit operating system from scratch using Assembly and C. Explored concepts like GDT, IDT, memory paging, protected mode, real mode, A20 bit, and CPUID.</p>
+            </div>
+            <div class="project-card">
+                <h3><i class="fas fa-gamepad"></i> Dofus Protocol Reverse Engineering</h3>
+                <p>Reverse-engineered the Dofus game communication protocol and developed Python tools to interact with the server and client. Analyzed packet structures and implemented integrity checks.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fas fa-shield-alt"></i> Cybersecurity</h3>
+                <ul class="skill-list">
+                    <li class="skill-item"><i class="fas fa-network-wired"></i> Network Security</li>
+                    <li class="skill-item"><i class="fas fa-search"></i> Threat Hunting</li>
+                    <li class="skill-item"><i class="fas fa-bug"></i> Malware Analysis</li>
+                    <li class="skill-item"><i class="fas fa-code"></i> Reverse Engineering</li>
+                    <li class="skill-item"><i class="fas fa-lock"></i> Penetration Testing</li>
+                    <li class="skill-item"><i class="fas fa-tools"></i> SIEM, IDS/IPS</li>
+                    <li class="skill-item"><i class="fas fa-fire"></i> Firewall Configuration</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Full-Stack Development</h3>
+                <ul class="skill-list">
+                    <li class="skill-item"><i class="fab fa-html5"></i> HTML/CSS/JS</li>
+                    <li class="skill-item"><i class="fab fa-react"></i> React</li>
+                    <li class="skill-item"><i class="fab fa-python"></i> Python</li>
+                    <li class="skill-item"><i class="fab fa-java"></i> Spring Boot</li>
+                    <li class="skill-item"><i class="fas fa-database"></i> SQL/NoSQL</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-cogs"></i> Low-Level Programming</h3>
+                <ul class="skill-list">
+                    <li class="skill-item"><i class="fas fa-microchip"></i> OS Development</li>
+                    <li class="skill-item"><i class="fas fa-cog"></i> Kernel/Driver Development</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-brain"></i> Machine Learning</h3>
+                <ul class="skill-list">
+                    <li class="skill-item"><i class="fas fa-project-diagram"></i> Neural Networks</li>
+                    <li class="skill-item"><i class="fas fa-language"></i> NLP</li>
+                    <li class="skill-item"><i class="fas fa-chart-line"></i> Data Analysis</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-content">
+            <p>Open for opportunities - Let's connect!</p>
+            <a href="mailto:nakkouchtarek@gmail.com" class="btn">Send Email</a>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/tarek-nakkouch"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/nakkouchtarek/"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.experience-card, .project-card, .skill-category').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        @font-face {
+            font-family: 'Cartoon';
+            src: url('fun.ttf') format('truetype');
+        }
+
+        /* Reset default margins/padding */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: white;
+            background-size: contain;  /* Adjusts the image to fit while maintaining aspect ratio */
+            background-repeat: repeat;  /* Repeats the image */
+            background-position: center; /* Centers the image */
+        }
+
+        /* Title navigation */
+        .title-nav {
+            position: fixed;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .title-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+
+        .title-list::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #4a5568;
+        }
+
+        .title-item {
+            padding: 15px 0;
+            position: relative;
+        }
+
+        .title-item a {
+            font-family: 'Cartoon';
+            color: #4a5568;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            display: block;
+            padding-left: 30px;
+        }
+
+        .title-item.active a {
+            color: #ffd700;
+            font-size: 2.5em;
+            text-shadow: 0 0 10px #ffd700;
+        }
+
+        .title-item:not(.active) a {
+            font-size: 1.3em;
+            opacity: 0.6;
+        }
+
+        .title-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: #4a5568;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .title-item.active::before {
+            background: #ffd700;
+            box-shadow: 0 0 10px #ffd700;
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Main scroll container */
+        .scroll-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+
+        /* Project sections */
+        .project-section {
+            height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .content-wrapper {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            align-items: start;
+            position: relative;
+        }
+
+        .ape-container {
+            flex: 0 0 600px;
+            position: sticky;
+            top: 100px;
+            margin-right: 20px;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .ape-image {
+            scale: 0.8;
+            width: 100%;
+            height: auto;
+        }
+
+        .speech-bubble, .tech-bubble {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-left: 20px;
+            width: 500px;
+            font-family: 'Cartoon', sans-serif;
+            color: #0f172a;
+            position: relative;
+            margin-left: -25%;
+            margin-top: 40%;
+
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4); /* More pronounced shadow */
+            border: 3px solid #4a5568; /* Added border */
+        }
+
+        .speech-bubble::before, .tech-bubble::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+
+        }
+
+        .tech-bubble {
+            margin-top: 20px;
+        }
+
+        .project-section:nth-child(even) .content-wrapper {
+            flex-direction: row-reverse;
+        }
+
+        .project-section:nth-child(even) .ape-container {
+            margin-right: 0;
+            margin-left: 20px;
+        }
+
+        .project-section:nth-child(even) .speech-bubble::before,
+        .project-section:nth-child(even) .tech-bubble::before {
+            left: auto;
+            right: -20px;
+            border-right-color: transparent;
+            border-left-color: white;
+        }
+
+        /* Adjust speech bubble positioning for alternate sections */
+        .project-section:nth-child(even) .speech-bubble,
+        .project-section:nth-child(even) .tech-bubble {
+            margin-left: 25%;
+        }
+
+        /* Shift project sections to the right */
+        .project-section {
+            padding-left: 25%; /* Push everything to the right */
+        }
+        
+        .project-section:nth-child(even) .ape-image {
+            transform: scaleX(-1); /* Horizontal flip */
+        }
+
+        /* Keep existing speech bubble positioning adjustments */
+        .project-section:nth-child(even) .speech-bubble,
+        .project-section:nth-child(even) .tech-bubble {
+            margin-left: 25%;
+        }
+
+        .warning-panel {
+            background: #fff3cd; /* Warning panel background color */
+            padding: 30px;
+            border-radius: 20px;
+            margin-left: 20px;
+            width: 600px; /* Adjust width as needed */
+            font-family: 'Cartoon', sans-serif;
+            color: black; /* Warning text color */
+            position: relative;
+            margin-left: -25%;
+            margin-top: 40%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            border: 3px solid #ffc107; /* Warning border color */
+        }
+
+        .project-description {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .technologies-used {
+            font-size: 1em;
+            color: #0f172a;
+        }
+
+        /* Adjust positioning for alternate sections */
+        .project-section:nth-child(even) .warning-panel {
+            margin-left: 25%;
+        }
+
+        .warning-panel {
+            background: repeating-linear-gradient(
+                45deg,
+                #ffd700,
+                #ffd700 10px,
+                #000 10px,
+                #000 20px
+            );
+            width: 600px;
+            padding: 30px;
+            border-radius: 10px;
+            position: relative;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transform: rotate(-2deg);
+            border: 3px solid #000;
+            font-family: 'Cartoon', sans-serif;
+        }
+
+        .warning-content {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .warning-panel::before,
+        .warning-panel::after {
+            content: '';
+            position: absolute;
+            background: #654321;
+            width: 15px;
+            height: 80px;
+            bottom: -70px;
+        }
+
+        .warning-panel::before {
+            left: 20%;
+            transform: rotate(10deg);
+        }
+
+        .warning-panel::after {
+            right: 20%;
+            transform: rotate(-10deg);
+        }
+
+        .warning-icon {
+            color: #ff0000;
+            font-size: 2.5em;
+            margin-right: 15px;
+        }
+
+        .warning-title {
+            color: #ff0000;
+            font-size: 2em;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+
+        .tech-list {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px dashed #000;
+        }
+
+        .tech-item {
+            background: #4a5568;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .chain {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: repeating-linear-gradient(
+                45deg,
+                #666,
+                #666 5px,
+                #444 5px,
+                #444 10px
+            );
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+
+        .project-section {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px 20px 20px 25%; /* Consolidated padding */
+    box-sizing: border-box;
+}
+
+/* Unified bubble positioning */
+.project-section:nth-child(even) .speech-bubble,
+.project-section:nth-child(even) .tech-bubble,
+.project-section:nth-child(even) .warning-panel {
+    margin-left: 25%;
+}
+
+.project-section:nth-child(odd) .warning-panel {
+    margin-top: 8%;
+}
+
+.project-section:nth-child(even) .warning-panel {
+    margin-top: 8%;
+}
+
+.warning-panel {
+    background: #8b4513;
+    width: 600px;
+    padding: 20px;
+    position: relative;
+    margin: 40px 0;
+    transform: rotate(-2deg);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    border: 12px solid #654321;
+    border-style: ridge;
+}
+
+.warning-content {
+    background: #f4d03f;
+    padding: 25px;
+    position: relative;
+    z-index: 1;
+    border: 3px solid #8b4513;
+    color: #4b2504;
+    font-family: 'Cartoon', sans-serif;
+    min-height: 200px;
+    background-image: 
+        linear-gradient(rgba(255,255,255,.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.2) 1px, transparent 1px);
+    background-size: 20px 20px;
+    font-size: 1.3em;
+}
+
+.warning-content::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border: 2px solid #8b4513;
+    z-index: -1;
+}
+
+.warning-title {
+    color: red;
+    font-size: 2.4em;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 0 #f4d03f, 3px 3px 0 #8b4513;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.tech-list {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px dashed #8b4513;
+}
+
+.tech-item {
+    background: #8b4513;
+    color: #f4d03f;
+    padding: 8px 15px;
+    border-radius: 0;
+    font-size: 0.9em;
+    font-family: 'Cartoon', sans-serif;
+    border: 2px solid #4b2504;
+    position: relative;
+}
+
+.tech-item::before,
+.tech-item::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #4b2504;
+    border-radius: 50%;
+}
+
+.tech-item::before {
+    top: -5px;
+    left: -5px;
+}
+
+.tech-item::after {
+    bottom: -5px;
+    right: -5px;
+}
+
+.warning-panel::before,
+.warning-panel::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #4b2504;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.warning-panel::before {
+    top: 10px;
+    left: 10px;
+}
+
+.warning-panel::after {
+    bottom: 10px;
+    right: 10px;
+}
+
+.chain {
+    position: absolute;
+    width: 40%;
+    height: 20px;
+    background: #4b2504;
+    top: -30px;
+    left: 30%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+    </style>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="title-nav">
+        <ul class="title-list">
+            <li class="title-item active"><a href="#project1">Cyber Homelab</a></li>
+            <li class="title-item"><a href="#project2">Framework C2 Web</a></li>
+            <li class="title-item"><a href="#project3">Malware Crypter</a></li>
+            <li class="title-item"><a href="#project4">Disk Serial Spoofer</a></li>
+            <li class="title-item"><a href="#project5">OS Development</a></li>
+            <li class="title-item"><a href="#project6">Process Hider</a></li>
+            <li class="title-item"><a href="#project7">Dofus Protocol RE</a></li>
+            <li class="title-item"><a href="#project8">Network Sniffer</a></li>
+            <li class="title-item"><a href="#project9">DNS Spoofer</a></li>
+            <li class="title-item"><a href="#project10">MISP Threat Hunting</a></li>
+            <li class="title-item"><a href="#project11">Handwritten Digit Recognition</a></li>
+            <li class="title-item"><a href="#project12">Internship Management</a></li>
+            <li class="title-item"><a href="#project13">Movie Recommendation</a></li>
+            <li class="title-item"><a href="#project14">BetterThanKahoot</a></li>
+            <li class="title-item"><a href="#project15">Platformer Multiplayer</a></li>
+            <li class="title-item"><a href="#project16">Mini Virtual Machine</a></li>
+            <li class="title-item"><a href="#project17">Custom Language Interpreter</a></li>
+        </ul>
+    </nav>
+
+    <div class="scroll-container">
+        <!-- Project 1: Cyber Homelab -->
+        <section class="project-section" id="project1">
+            <div class="content-wrapper">
+                <div class="ape-container">
+                    <img src="apes/ape0.webp" class="ape-image" alt="Cyber Homelab">
+                </div>
+                <div class="warning-panel">
+                    <div class="chain"></div>
+                    <div class="warning-content">
+                        <div class="warning-title">
+                            
+                            CYBER HOMELAB
+                        </div>
+                        <p>Created a secure virtual homelab with Fortigate, Pfsense, Splunk, Wazuh, ELK, Snort, and Active Directory. Outer firewall with Fortigate, DMZ with honeypot (Cowrie), OpenVPN for inner network access, and Pfsense for inner firewall. Three subnets: SOC activity (Splunk, ELK, Wazuh, Snort), Active Directory, and internal pentesting.</p>
+                        <div class="tech-list">
+                            <span class="tech-item"><i class="fas fa-shield-alt"></i> Fortigate</span>
+                            <span class="tech-item"><i class="fas fa-network-wired"></i> Pfsense</span>
+                            <span class="tech-item"><i class="fas fa-chart-line"></i> Splunk</span>
+                            <span class="tech-item"><i class="fas fa-eye"></i> Wazuh</span>
+                            <span class="tech-item"><i class="fas fa-database"></i> ELK</span>
+                            <span class="tech-item"><i class="fas fa-bug"></i> Snort</span>
+                            <span class="tech-item"><i class="fas fa-user-shield"></i> Active Directory</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project 2: Framework C2 Web -->
+        <section class="project-section" id="project2">
+            <div class="content-wrapper">
+                <div class="ape-container">
+                    <img src="apes/ape1.webp" class="ape-image" alt="Framework C2 Web">
+                </div>
+                <div class="warning-panel">
+                    <div class="chain"></div>
+                    <div class="warning-content">
+                        <div class="warning-title">
+                            
+                            FRAMEWORK C2 WEB
+                        </div>
+                        <p>Developed a custom C2 client/server with a web interface in Go, HTML, CSS, and JS. Supports multiple clients and allows direct interaction from the web interface.</p>
+                        <div class="tech-list">
+                            <span class="tech-item"><i class="fab fa-golang"></i> Go</span>
+                            <span class="tech-item"><i class="fab fa-html5"></i> HTML</span>
+                            <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS</span>
+                            <span class="tech-item"><i class="fab fa-js-square"></i> JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project 3: Malware Crypter -->
+        <section class="project-section" id="project3">
+            <div class="content-wrapper">
+                <div class="ape-container">
+                    <img src="apes/ape2.webp" class="ape-image" alt="Malware Crypter">
+                </div>
+                <div class="warning-panel">
+                    <div class="chain"></div>
+                    <div class="warning-content">
+                        <div class="warning-title">
+                            
+                            MALWARE CRYPTER
+                        </div>
+                        <p>Created a malware crypter in C++ to obscure malware and bypass antivirus detection. Uses Base64 and XOR encryption to hide function names, dynamically loading them when called to evade static and dynamic analysis.</p>
+                        <div class="tech-list">
+                            <span class="tech-item"><i class="fab fa-cuttlefish"></i>&nbsp C++</span>
+                            <span class="tech-item"><i class="fas fa-lock"></i> Base64</span>
+                            <span class="tech-item"><i class="fas fa-key"></i> XOR Encryption</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project 4: Disk Serial Spoofer -->
+        <section class="project-section" id="project4">
+            <div class="content-wrapper">
+                <div class="ape-container">
+                    <img src="apes/ape3.webp" class="ape-image" alt="Disk Serial Spoofer">
+                </div>
+                <div class="warning-panel">
+                    <div class="chain"></div>
+                    <div class="warning-content">
+                        <div class="warning-title">
+                            
+                            DISK SERIAL SPOOFER
+                        </div>
+                        <p>Developed a custom driver in C++ to spoof disk serial numbers. Hooks the disk driver's IO control to intercept queries for storage device properties and spoofs the serial number in response.</p>
+                        <div class="tech-list">
+                            <span class="tech-item"><i class="fab fa-cuttlefish"></i>&nbsp C++</span>
+                            <span class="tech-item"><i class="fas fa-hdd"></i> Driver Development</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project 5: OS Development -->
+        <section class="project-section" id="project5">
+            <div class="content-wrapper">
+                <div class="ape-container">
+                    <img src="apes/ape4.webp" class="ape-image" alt="OS Development">
+                </div>
+                <div class="warning-panel">
+                    <div class="chain"></div>
+                    <div class="warning-content">
+                        <div class="warning-title">
+                            
+                            OS DEVELOPMENT
+                        </div>
+                        <p>Created a 64-bit operating system from scratch using Assembly and C. Implemented core OS concepts including GDT, IDT, memory paging, protected mode, real mode, A20 line management, and CPUID functionality.</p>
+                        <div class="tech-list">
+                            <span class="tech-item"><i class="fas fa-microchip"></i> Assembly</span>
+                            <span class="tech-item"><i class="fab fa-cuttlefish"></i>&nbsp C</span>
+                            <span class="tech-item"><i class="fas fa-memory"></i> Systems Programming</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <!-- Project 6: Process Hider -->
+                <section class="project-section" id="project6">
+                    <div class="content-wrapper">
+                        <div class="ape-container">
+                            <img src="apes/ape19.webp" class="ape-image" alt="Process Hider" style="scale: 0.8;">
+                        </div>
+                        <div class="warning-panel">
+                            <div class="chain"></div>
+                            <div class="warning-content">
+                                <div class="warning-title">
+                                    
+                                    PROCESS HIDER
+                                </div>
+                                <p>Developed Windows process hider using trampoline hooking technique for both x64 and x86 architectures. Modified NtQuerySystemInformation behavior to hide specific processes from detection.</p>
+                                <div class="tech-list">
+                                    <span class="tech-item"><i class="fab fa-cuttlefish"></i>&nbsp C++</span>
+                                    <span class="tech-item"><i class="fab fa-windows"></i> Windows API</span>
+                                    <span class="tech-item"><i class="fas fa-memory"></i> Assembly</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <!-- Project 7: Dofus Protocol RE -->
+                <section class="project-section" id="project7">
+                    <div class="content-wrapper">
+                        <div class="ape-container">
+                            <img src="apes/ape6.webp" class="ape-image" alt="Dofus RE">
+                        </div>
+                        <div class="warning-panel">
+                            <div class="chain"></div>
+                            <div class="warning-content">
+                                <div class="warning-title">
+                                    
+                                    DOFUS PROTOCOL RE
+                                </div>
+                                <p>Reverse engineered Dofus game protocol and developed Python tools for server interaction. Analyzed packet structures for chat, movement, and hidden attributes, implementing integrity checks and proper packet formatting.</p>
+                                <div class="tech-list">
+                                    <span class="tech-item"><i class="fab fa-python"></i> Python</span>
+                                    <span class="tech-item"><i class="fas fa-network-wired"></i> Wireshark</span>
+                                    <span class="tech-item"><i class="fas fa-file-binary"></i> Reverse Engineering</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <!-- Project 8: Network Sniffer -->
+                <section class="project-section" id="project8">
+                    <div class="content-wrapper">
+                        <div class="ape-container">
+                            <img src="apes/ape7.webp" class="ape-image" alt="Network Sniffer" style="scale: 0.7;">
+                        </div>
+                        <div class="warning-panel" style="margin-top: 15%;">
+                            <div class="chain"></div>
+                            <div class="warning-content">
+                                <div class="warning-title">
+                                    
+                                    NETWORK SNIFFER
+                                </div>
+                                <p>Created Python-based network sniffer with Scapy and psutil for traffic analysis. Developed both single-client and distributed versions with protocol analysis and statistical reporting.</p>
+                                <div class="tech-list">
+                                    <span class="tech-item"><i class="fab fa-python"></i> Python</span>
+                                    <span class="tech-item"><i class="fas fa-network-wired"></i> Scapy</span>
+                                    <span class="tech-item"><i class="fas fa-chart-pie"></i> psutil</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <!-- Project 9: DNS Spoofer -->
+                <section class="project-section" id="project9">
+                    <div class="content-wrapper">
+                        <div class="ape-container">
+                            <img src="apes/ape8.webp" class="ape-image" alt="DNS Spoofer">
+                        </div>
+                        <div class="warning-panel">
+                            <div class="chain"></div>
+                            <div class="warning-content">
+                                <div class="warning-title">
+                                    
+                                    DNS SPOOFER
+                                </div>
+                                <p>Developed DNS spoofer with ARP poisoning capabilities. Implemented packet simulation and response manipulation to redirect traffic to controlled endpoints.</p>
+                                <div class="tech-list">
+                                    <span class="tech-item"><i class="fab fa-python"></i> Python</span>
+                                    <span class="tech-item"><i class="fas fa-network-wired"></i> Scapy</span>
+                                    <span class="tech-item"><i class="fas fa-shield-alt"></i> ARP Spoofing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <!-- Project 10: MISP Threat Hunting -->
+                <section class="project-section" id="project10">
+                    <div class="content-wrapper">
+                        <div class="ape-container">
+                            <img src="apes/ape9.webp" class="ape-image" alt="MISP Tool">
+                        </div>
+                        <div class="warning-panel">
+                            <div class="chain"></div>
+                            <div class="warning-content">
+                                <div class="warning-title">
+                                    
+                                    MISP THREAT HUNTING
+                                </div>
+                                <p>Created dark web crawler for threat intelligence feeding into MISP platform. Implemented AI analysis for page classification and phishing domain detection with automated CTI reporting.</p>
+                                <div class="tech-list">
+                                    <span class="tech-item"><i class="fab fa-python"></i> Python</span>
+                                    <span class="tech-item"><i class="fas fa-robot"></i> AI Analysis</span>
+                                    <span class="tech-item"><i class="fas fa-spider"></i> Web Crawler</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <!-- Project 11: Handwritten Digit Recognition -->
+                <section class="project-section" id="project11">
+                    <div class="content-wrapper">
+                        <div class="ape-container">
+                            <img src="apes/ape10.webp" class="ape-image" alt="Digit Recognition">
+                        </div>
+                        <div class="warning-panel">
+                            <div class="chain"></div>
+                            <div class="warning-content">
+                                <div class="warning-title">
+                                    
+                                    DIGIT RECOGNITION
+                                </div>
+                                <p>Developed neural network model using Keras/TensorFlow for MNIST dataset. Achieved 98%+ accuracy with feed-forward architecture using ReLU activation and softmax output.</p>
+                                <div class="tech-list">
+                                    <span class="tech-item"><i class="fab fa-python"></i> Python</span>
+                                    <span class="tech-item"><i class="fas fa-brain"></i> TensorFlow</span>
+                                    <span class="tech-item"><i class="fas fa-project-diagram"></i> Neural Networks</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <section class="project-section" id="project12">
+                    <div class="content-wrapper">
+                        <div class="ape-container">
+                            <img src="apes/ape11.webp" class="ape-image" alt="Internship Management">
+                        </div>
+                        <div class="warning-panel">
+                            <div class="chain"></div>
+                            <div class="warning-content">
+                                <div class="warning-title">
+                                    
+                                    INTERNSHIP MANAGEMENT
+                                </div>
+                                <p>Full-stack web application for managing internship reports using Python, HTML, CSS, and JS. Implements NLP for information extraction and statistical analysis from reports.</p>
+                                <div class="tech-list">
+                                    <span class="tech-item"><i class="fab fa-python"></i> Python</span>
+                                    <span class="tech-item"><i class="fab fa-html5"></i> HTML</span>
+                                    <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS</span>
+                                    <span class="tech-item"><i class="fab fa-js-square"></i> JavaScript</span>
+                                    <span class="tech-item"><i class="fas fa-brain"></i> NLP</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Project 13: Movie Recommendation -->
+                <section class="project-section" id="project13">
+                    <div class="content-wrapper">
+                        <div class="ape-container">
+                            <img src="apes/ape12.webp" class="ape-image" alt="Movie Recommendation">
+                        </div>
+                        <div class="warning-panel">
+                            <div class="chain"></div>
+                            <div class="warning-content">
+                                <div class="warning-title">
+                                    
+                                    MOVIE RECOMMENDATION
+                                </div>
+                                <p>Netflix-like web application built with React and Python backend. Features movie browsing, search, and recommendation system using cosine similarity based on user viewing history. Includes browser extension for tracking user activity.</p>
+                                <div class="tech-list">
+                                    <span class="tech-item"><i class="fab fa-react"></i> React</span>
+                                    <span class="tech-item"><i class="fab fa-python"></i> Python</span>
+                                    <span class="tech-item"><i class="fas fa-brain"></i> ML</span>
+                                    <span class="tech-item"><i class="fas fa-puzzle-piece"></i> Browser Extension</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Project 14: BetterThanKahoot -->
+                <section class="project-section" id="project14">
+                    <div class="content-wrapper">
+                        <div class="ape-container">
+                            <img src="apes/ape13.webp" class="ape-image" alt="BetterThanKahoot">
+                        </div>
+                        <div class="warning-panel">
+                            <div class="chain"></div>
+                            <div class="warning-content">
+                                <div class="warning-title">
+                                    
+                                    BETTER THAN KAHOOT
+                                </div>
+                                <p>Real-time quiz application using WebSockets for multi-client support. Features mobile host control via Bluetooth and Python backend with HTML/CSS/JS frontend.</p>
+                                <div class="tech-list">
+                                    <span class="tech-item"><i class="fab fa-python"></i> Python</span>
+                                    <span class="tech-item"><i class="fab fa-bluetooth"></i> Bluetooth</span>
+                                    <span class="tech-item"><i class="fas fa-network-wired"></i> WebSockets</span>
+                                    <span class="tech-item"><i class="fab fa-js-square"></i> JavaScript</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Project 15: Platformer Multiplayer -->
+                <section class="project-section" id="project15">
+                    <div class="content-wrapper">
+                        <div class="ape-container">
+                            <img src="apes/ape14.webp" class="ape-image" alt="Platformer Multiplayer">
+                        </div>
+                        <div class="warning-panel">
+                            <div class="chain"></div>
+                            <div class="warning-content">
+                                <div class="warning-title">
+                                    
+                                    PLATFORMER MULTIPLAYER
+                                </div>
+                                <p>Modernized version of Sokoban game in C with custom assets, level editor, and multiplayer functionality using Windows API for networking and SDL2 for graphics.</p>
+                                <div class="tech-list">
+                                    <span class="tech-item"><i class="fab fa-cuttlefish"></i>&nbsp C</span>
+                                    <span class="tech-item"><i class="fas fa-gamepad"></i> SDL2</span>
+                                    <span class="tech-item"><i class="fab fa-windows"></i> Windows API</span>
+                                    <span class="tech-item"><i class="fas fa-users"></i> Multiplayer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Project 16: Mini Virtual Machine -->
+                <section class="project-section" id="project16">
+                    <div class="content-wrapper">
+                        <div class="ape-container">
+                            <img src="apes/ape15.webp" class="ape-image" alt="Mini Virtual Machine">
+                        </div>
+                        <div class="warning-panel">
+                            <div class="chain"></div>
+                            <div class="warning-content">
+                                <div class="warning-title">
+                                    
+                                    MINI VIRTUAL MACHINE
+                                </div>
+                                <p>Basic virtual machine implementation supporting fundamental arithmetic operations and basic instruction set execution.</p>
+                                <div class="tech-list">
+                                    <span class="tech-item"><i class="fab fa-cuttlefish"></i>&nbsp C++</span>
+                                    <span class="tech-item"><i class="fas fa-microchip"></i> VM Architecture</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Project 17: Custom Language Interpreter -->
+                <section class="project-section" id="project17">
+                    <div class="content-wrapper">
+                        <div class="ape-container">
+                            <img src="apes/ape16.webp" class="ape-image" alt="Custom Language Interpreter" style="scale: 0.6;">
+                        </div>
+                        <div class="warning-panel" style="margin-top: 20%;">
+                            <div class="chain"></div>
+                            <div class="warning-content">
+                                <div class="warning-title">
+                                    
+                                    CUSTOM LANGUAGE INTERPRETER
+                                </div>
+                                <p>Custom programming language interpreter implemented in C++ with hand-written lexer and parser components.</p>
+                                <div class="tech-list">
+                                    <span class="tech-item"><i class="fab fa-cuttlefish"></i>&nbsp C++</span>
+                                    <span class="tech-item"><i class="fas fa-code"></i> Language Design</span>
+                                    <span class="tech-item"><i class="fas fa-project-diagram"></i> Parser</span>
+                                    <span class="tech-item"><i class="fas fa-stream"></i> Lexer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const sections = document.querySelectorAll('.project-section');
+                const titleItems = document.querySelectorAll('.title-item');
+                const observerOptions = {
+                    threshold: 0.5
+                };
+    
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const index = Array.from(sections).indexOf(entry.target);
+                            titleItems.forEach(item => item.classList.remove('active'));
+                            titleItems[index].classList.add('active');
+                        }
+                    });
+                }, observerOptions);
+    
+                sections.forEach(section => {
+                    observer.observe(section);
+                });
+    
+                // Smooth scroll for navigation
+                document.querySelectorAll('.title-item a').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        document.querySelector(targetId).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+            });
+
+            
+        </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const sections = document.querySelectorAll('.project-section');
+                const titleItems = document.querySelectorAll('.title-item');
+                const nav = document.querySelector('.title-nav');
+                const list = document.querySelector('.title-list');
+                const itemHeight = 60; // Match your CSS item height
+                let lastActiveIndex = 0;
+            
+                // Set fixed height for nav to show exactly 5 items
+                nav.style.height = `${itemHeight * 5}px`;
+                nav.style.overflow = 'hidden';
+            
+                // Create scroll container
+                const scrollContainer = document.createElement('div');
+                scrollContainer.style.height = '100%';
+                scrollContainer.style.overflowY = 'auto';
+                scrollContainer.style.scrollBehavior = 'smooth';
+                nav.insertBefore(scrollContainer, list);
+                scrollContainer.appendChild(list);
+            
+                // Hide scrollbars
+                scrollContainer.style.scrollbarWidth = 'none';
+                scrollContainer.classList.add('hide-scrollbar');
+            
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const activeIndex = Array.from(sections).indexOf(entry.target);
+                            
+                            // Update active class
+                            titleItems.forEach(item => item.classList.remove('active'));
+                            titleItems[activeIndex].classList.add('active');
+            
+                            // Calculate new scroll position
+                            let startIndex = Math.min(
+                                Math.max(activeIndex - 2, 0),
+                                titleItems.length - 5
+                            );
+            
+                            // Smooth scroll to position
+                            scrollContainer.scrollTo({
+                                top: startIndex * itemHeight,
+                                behavior: 'smooth'
+                            });
+            
+                            lastActiveIndex = activeIndex;
+                        }
+                    });
+                }, { threshold: 0.5 });
+            
+                sections.forEach(section => observer.observe(section));
+            
+                // Handle manual scroll
+                let isWheeling = false;
+                scrollContainer.addEventListener('wheel', (e) => {
+                    if (!isWheeling) {
+                        isWheeling = true;
+                        const delta = Math.sign(e.deltaY);
+                        const newIndex = Math.min(
+                            Math.max(lastActiveIndex + delta, 0), 
+                            sections.length - 1
+                        );
+                        
+                        sections[newIndex].scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                        
+                        setTimeout(() => isWheeling = false, 1000);
+                    }
+                    e.preventDefault();
+                });
+            
+                // Click handler for nav items
+                document.querySelectorAll('.title-item a').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        document.querySelector(targetId).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+            });
+            </script>
+            
+            <style>
+            /* Add to existing CSS */
+            .title-nav {
+                transition: height 0.3s ease;
+            }
+            
+            .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .title-item {
+                height: 60px;
+                padding: 0;
+                display: flex;
+                align-items: center;
+            }
+            </style>
+    </body>
+    </html>
