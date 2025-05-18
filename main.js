@@ -139,33 +139,10 @@ backButton.addEventListener('click', () => browserFrame.contentWindow.history.ba
 forwardButton.addEventListener('click', () => browserFrame.contentWindow.history.forward());
 refreshButton.addEventListener('click', () => browserFrame.contentWindow.location.reload());
 
-function adjustZoom() {
-const baseWidth = 1920; 
-const baseHeight = 955;
-const screenWidth = window.innerWidth;
-const screenHeight = window.innerHeight;
+(function() {
+  if (window.innerHeight <= 800) {
+    window.location.href = 'mobile.html';
+  }
+})();
 
-// Calculate scale factor
-const scaleX = screenWidth / baseWidth;
-const scaleY = screenHeight / baseHeight;
-const scale = Math.min(scaleX, scaleY); // Keep aspect ratio
-
-// Apply zoom
-document.body.style.transform = `scale(${scale})`;
-document.body.style.transformOrigin = "top left"; // Adjust origin to avoid cutoff
-document.body.style.width = `${baseWidth}px`; // Prevent content from shrinking
-document.body.style.height = `${baseHeight}px`;
-}
-
-// Function to detect mobile devices
-function redirectToMobile() {
-if (window.innerWidth <= 800) { // You can adjust this threshold based on your needs
-    window.location.href = "mobile.html";
-}
-}
-// Redirect when the page loads
-window.onload = redirectToMobile;
-
-adjustZoom();
-window.addEventListener("resize", adjustZoom);
 
