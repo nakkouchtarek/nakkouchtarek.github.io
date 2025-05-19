@@ -140,9 +140,41 @@ forwardButton.addEventListener('click', () => browserFrame.contentWindow.history
 refreshButton.addEventListener('click', () => browserFrame.contentWindow.location.reload());
 
 (function() {
-  if (window.innerHeight <= 800) {
-    window.location.href = 'mobile.html';
-  }
+    if (window.innerWidth <= 1200) {
+        window.location.href = 'mobile.html';
+        return;
+    }
+    
+    // Calculate zoom based on height
+    let zoom;
+    let max;
+    if (window.innerWidth <= 1280) {
+        zoom = 0.7;
+        max = 120;
+    }
+    else if (window.innerWidth <= 1440) {
+        zoom = 0.8;
+        max = 120;
+    }
+    else if (window.innerWidth <= 1600) {
+        zoom = 0.9;
+        max = 90;
+    } else if (window.innerWidth <= 1920) {
+        zoom = 1;
+        max = 90;
+    } else {
+        zoom = 1.2;
+        max = 90;
+    }
+    
+    // Apply zoom to all terminal windows
+    document.querySelectorAll('.mac-terminal-window')
+        .forEach(el => el.style.zoom = zoom);
+    document.querySelectorAll('.browser-window')
+        .forEach(el => el.style.zoom = zoom);
+
+        document.querySelectorAll('.browser-window')
+        .forEach(el => el.style.height = `${max}vh`);
 })();
 
 
