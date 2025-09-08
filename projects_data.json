@@ -1,0 +1,181 @@
+[
+  {
+    "id": "project1",
+    "title": "CYBER HOMELAB",
+    "description": "Created a secure virtual homelab with Fortigate, Pfsense, Splunk, Wazuh, ELK, Snort, and Active Directory. Outer firewall with Fortigate, DMZ with honeypot (Cowrie), OpenVPN for inner network access, and Pfsense for inner firewall. Three subnets: SOC activity (Splunk, ELK, Wazuh, Snort), Active Directory, and internal pentesting.",
+    "technologies": [
+      "Fortigate",
+      "Pfsense",
+      "Splunk",
+      "Wazuh",
+      "ELK",
+      "Snort",
+      "Active Directory"
+    ]
+  },
+  {
+    "id": "project2",
+    "title": "FRAMEWORK C2 WEB",
+    "description": "Developed a custom C2 client/server with a web interface in Go, HTML, CSS, and JS. Supports multiple clients and allows direct interaction from the web interface.",
+    "technologies": [
+      "Go",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ]
+  },
+  {
+    "id": "project3",
+    "title": "MALWARE CRYPTER",
+    "description": "Created a malware crypter in C++ to obscure malware and bypass antivirus detection. Uses Base64 and XOR encryption to hide function names, dynamically loading them when called to evade static and dynamic analysis.",
+    "technologies": [
+      "&nbsp C++",
+      "Base64",
+      "XOR Encryption"
+    ]
+  },
+  {
+    "id": "project4",
+    "title": "DISK SERIAL SPOOFER",
+    "description": "Developed a custom driver in C++ to spoof disk serial numbers. Hooks the disk driver's IO control to intercept queries for storage device properties and spoofs the serial number in response.",
+    "technologies": [
+      "&nbsp C++",
+      "Driver Development"
+    ]
+  },
+  {
+    "id": "project5",
+    "title": "OS DEVELOPMENT",
+    "description": "Created a 64-bit operating system from scratch using Assembly and C. Implemented core OS concepts including GDT, IDT, memory paging, protected mode, real mode, A20 line management, and CPUID functionality.",
+    "technologies": [
+      "Assembly",
+      "&nbsp C",
+      "Systems Programming"
+    ]
+  },
+  {
+    "id": "project6",
+    "title": "PROCESS HIDER",
+    "description": "Developed Windows process hider using trampoline hooking technique for both x64 and x86 architectures. Modified NtQuerySystemInformation behavior to hide specific processes from detection.",
+    "technologies": [
+      "&nbsp C++",
+      "Windows API",
+      "Assembly"
+    ]
+  },
+  {
+    "id": "project7",
+    "title": "DOFUS PROTOCOL RE",
+    "description": "Reverse engineered Dofus game protocol and developed Python tools for server interaction. Analyzed packet structures for chat, movement, and hidden attributes, implementing integrity checks and proper packet formatting.",
+    "technologies": [
+      "Python",
+      "Wireshark",
+      "Reverse Engineering"
+    ]
+  },
+  {
+    "id": "project8",
+    "title": "NETWORK SNIFFER",
+    "description": "Created Python-based network sniffer with Scapy and psutil for traffic analysis. Developed both single-client and distributed versions with protocol analysis and statistical reporting.",
+    "technologies": [
+      "Python",
+      "Scapy",
+      "psutil"
+    ]
+  },
+  {
+    "id": "project9",
+    "title": "DNS SPOOFER",
+    "description": "Developed DNS spoofer with ARP poisoning capabilities. Implemented packet simulation and response manipulation to redirect traffic to controlled endpoints.",
+    "technologies": [
+      "Python",
+      "Scapy",
+      "ARP Spoofing"
+    ]
+  },
+  {
+    "id": "project10",
+    "title": "MISP THREAT HUNTING",
+    "description": "Created dark web crawler for threat intelligence feeding into MISP platform. Implemented AI analysis for page classification and phishing domain detection with automated CTI reporting.",
+    "technologies": [
+      "Python",
+      "AI Analysis",
+      "Web Crawler"
+    ]
+  },
+  {
+    "id": "project11",
+    "title": "DIGIT RECOGNITION",
+    "description": "Developed neural network model using Keras/TensorFlow for MNIST dataset. Achieved 98%+ accuracy with feed-forward architecture using ReLU activation and softmax output.",
+    "technologies": [
+      "Python",
+      "TensorFlow",
+      "Neural Networks"
+    ]
+  },
+  {
+    "id": "project12",
+    "title": "INTERNSHIP MANAGEMENT",
+    "description": "Full-stack web application for managing internship reports using Python, HTML, CSS, and JS. Implements NLP for information extraction and statistical analysis from reports.",
+    "technologies": [
+      "Python",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "NLP"
+    ]
+  },
+  {
+    "id": "project13",
+    "title": "MOVIE RECOMMENDATION",
+    "description": "Netflix-like web application built with React and Python backend. Features movie browsing, search, and recommendation system using cosine similarity based on user viewing history. Includes browser extension for tracking user activity.",
+    "technologies": [
+      "React",
+      "Python",
+      "ML",
+      "Browser Extension"
+    ]
+  },
+  {
+    "id": "project14",
+    "title": "BETTER THAN KAHOOT",
+    "description": "Real-time quiz application using WebSockets for multi-client support. Features mobile host control via Bluetooth and Python backend with HTML/CSS/JS frontend.",
+    "technologies": [
+      "Python",
+      "Bluetooth",
+      "WebSockets",
+      "JavaScript"
+    ]
+  },
+  {
+    "id": "project15",
+    "title": "PLATFORMER MULTIPLAYER",
+    "description": "Modernized version of Sokoban game in C with custom assets, level editor, and multiplayer functionality using Windows API for networking and SDL2 for graphics.",
+    "technologies": [
+      "&nbsp C",
+      "SDL2",
+      "Windows API",
+      "Multiplayer"
+    ]
+  },
+  {
+    "id": "project16",
+    "title": "MINI VIRTUAL MACHINE",
+    "description": "Basic virtual machine implementation supporting fundamental arithmetic operations and basic instruction set execution.",
+    "technologies": [
+      "&nbsp C++",
+      "VM Architecture"
+    ]
+  },
+  {
+    "id": "project17",
+    "title": "CUSTOM LANGUAGE INTERPRETER",
+    "description": "Custom programming language interpreter implemented in C++ with hand-written lexer and parser components.",
+    "technologies": [
+      "&nbsp C++",
+      "Language Design",
+      "Parser",
+      "Lexer"
+    ]
+  }
+]
