@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="./linux.png" type="image/png">
     <style>
         * {
             margin: 0;
@@ -155,10 +156,23 @@
         section {
             min-height: 100vh;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
-            padding: 2rem 4rem 3rem 4rem;
+            /* reduced top/bottom padding to bring section labels closer to page top */
+            padding: 3rem 4rem;
             position: relative;
+        }
+
+        /* visual lazy-load: hide sections until they're near viewport */
+        section {
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 420ms ease, transform 420ms ease;
+            will-change: opacity, transform;
+        }
+        section.visible {
+            opacity: 1;
+            transform: none;
         }
 
         .container {
@@ -258,8 +272,7 @@
 
         /* Section Headers */
         .section-header {
-            margin-top: 0.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         .section-label {
@@ -386,21 +399,21 @@
             flex-direction: column;
             gap: 0.75rem;
         }
-
-        .experience-description li {
+        .experience-description > div {
             color: var(--text-secondary);
-            padding-left: 2rem;
-            position: relative;
+            padding-left: 0;
             line-height: 1.7;
+            /* keep items inline so ::before appears directly before text */
+            display: inline-block;
         }
-
-        .experience-description li::before {
+        .experience-description > div::before {
             content: '→';
-            position: absolute;
-            left: 0;
+            display: inline-block;
+            margin-right: 0.6rem; /* spacing between arrow and text */
             color: var(--accent);
             font-weight: 700;
         }
+        /* single ::before rule above handles the arrow */
 
         /* Education Section */
         .education-grid {
@@ -715,11 +728,11 @@
             }
 
             section {
-                padding: 4rem 2.5rem;
+                padding: 3rem 2.5rem;
             }
         }
 
-        @media (max-width: 768px) {
+    @media (max-width: 768px) {
             .side-nav {
                 width: 100%;
                 height: auto;
@@ -756,7 +769,7 @@
 
             section {
                 min-height: auto;
-                padding: 3rem 1.5rem;
+                padding: 2.25rem 1.5rem;
             }
 
             html {
@@ -944,10 +957,10 @@
                             </div>
                             <div class="experience-date">Mar 2025 – Apr 2025</div>
                         </div>
-                        <ul class="experience-description">
-                            <li>Hardened Docker, Kubernetes, and Nginx using CIS benchmarks</li>
-                            <li>Integrated automated vulnerability scanning into CI/CD pipelines</li>
-                        </ul>
+                        <div class="experience-description">
+                            <div>Hardened Docker, Kubernetes, and Nginx using CIS benchmarks</div>
+                            <div>Integrated automated vulnerability scanning into CI/CD pipelines</div>
+                        </div>
                     </div>
 
                     <div class="experience-item">
@@ -958,10 +971,10 @@
                             </div>
                             <div class="experience-date">Sep 2024 – Jan 2025</div>
                         </div>
-                        <ul class="experience-description">
-                            <li>Assessed and benchmarked cybersecurity solutions for business needs</li>
-                            <li>Led team development of training programs and secure testing environments</li>
-                        </ul>
+                        <div class="experience-description">
+                            <div>Assessed and benchmarked cybersecurity solutions for business needs</div>
+                            <div>Led team development of training programs and secure testing environments</div>
+                        </div>
                     </div>
 
                     <div class="experience-item">
@@ -972,10 +985,10 @@
                             </div>
                             <div class="experience-date">Feb 2024</div>
                         </div>
-                        <ul class="experience-description">
-                            <li>Deployed Wazuh SIEM XDR with Suricata IDS for threat detection</li>
-                            <li>Configured MISP CTI and developed threat hunting tool</li>
-                        </ul>
+                        <div class="experience-description">
+                            <div>Deployed Wazuh SIEM XDR with Suricata IDS for threat detection</div>
+                            <div>Configured MISP CTI and developed threat hunting tool</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1184,13 +1197,16 @@
         function updateActiveNav() {
             let current = '';
             const scrollPosition = window.scrollY + window.innerHeight / 2;
+            
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
+                
                 if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                     current = section.getAttribute('id');
                 }
             });
+
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === '#' + current) {
@@ -1202,30 +1218,73 @@
         window.addEventListener('scroll', updateActiveNav);
         window.addEventListener('load', updateActiveNav);
 
-        // Smart smooth scroll for all internal anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
+        // Smooth scroll for navigation
+        navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
+                e.preventDefault();
                 const targetId = this.getAttribute('href');
                 const targetSection = document.querySelector(targetId);
-                if (targetSection) {
-                    e.preventDefault();
-                    // Calculate offset for fixed nav
-                    const nav = document.querySelector('.side-nav');
-                    let offset = 0;
-                    if (nav && window.innerWidth > 768) {
-                        offset = nav.offsetHeight > window.innerHeight ? 0 : nav.offsetWidth;
-                    }
-                    const sectionTop = targetSection.getBoundingClientRect().top + window.scrollY;
-                    // Adjust for top padding so title is not too far down
-                    const paddingTop = parseInt(window.getComputedStyle(targetSection).paddingTop) || 0;
-                    const scrollTo = sectionTop - paddingTop + 24; // 24px for a little breathing room
-                    window.scrollTo({
-                        top: scrollTo,
-                        behavior: 'smooth'
-                    });
-                }
+                
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             });
         });
+
+        // Lazy reveal/unload sections when they enter/leave the viewport
+        (function() {
+            const sections = Array.from(document.querySelectorAll('section'));
+
+            function makeVisible(el) { el.classList.add('visible'); }
+            function makeHidden(el) { el.classList.remove('visible'); }
+
+            function revealIfInView() {
+                sections.forEach(s => {
+                    const r = s.getBoundingClientRect();
+                    if (r.top < window.innerHeight + 100 && r.bottom > -100) {
+                        makeVisible(s);
+                    } else {
+                        makeHidden(s);
+                    }
+                });
+            }
+
+            if ('IntersectionObserver' in window) {
+                const io = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            makeVisible(entry.target);
+                        } else {
+                            makeHidden(entry.target);
+                        }
+                    });
+                }, {
+                    root: null,
+                    rootMargin: '200px 0px',
+                    threshold: 0.05
+                });
+
+                sections.forEach(s => io.observe(s));
+            } else {
+                // fallback: reveal sections that are in view
+                revealIfInView();
+                window.addEventListener('scroll', revealIfInView, {passive: true});
+                window.addEventListener('resize', revealIfInView);
+            }
+
+            // ensure first section is visible immediately
+            if (sections.length) sections[0].classList.add('visible');
+
+            // when clicking nav links, reveal the target immediately
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const id = this.getAttribute('href');
+                    const target = document.querySelector(id);
+                    if (target) makeVisible(target);
+                });
+            });
+        })();
     </script>
 </body>
 </html>
