@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarek Nakkouch | Cybersecurity Researcher</title>
+    <title>Tarek Nakkouch | Security Researcher</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,6 +21,7 @@
             --bg-secondary: #131825;
             --accent: #6366F1;
             --accent-hover: #4F46E5;
+            --accent-rgb: 99, 102, 241;
             --text-primary: #F1F5F9;
             --text-secondary: #94A3B8;
             --text-muted: #64748B;
@@ -100,12 +101,12 @@
 
         .nav-links a:hover {
             color: var(--text-primary);
-            background: rgba(99, 102, 241, 0.08);
+            background: rgba(var(--accent-rgb), 0.08);
         }
 
         .nav-links a.active {
             color: var(--accent);
-            background: rgba(99, 102, 241, 0.1);
+            background: rgba(var(--accent-rgb), 0.1);
         }
 
         .nav-links a.active::before {
@@ -183,7 +184,7 @@
 
         /* Hero Section */
         #hero {
-            background: radial-gradient(ellipse at top, rgba(99, 102, 241, 0.08), transparent 50%);
+            background: radial-gradient(ellipse at top, rgba(var(--accent-rgb), 0.08), transparent 50%);
         }
 
         .hero-content {
@@ -194,8 +195,8 @@
         .hero-label {
             display: inline-block;
             padding: 0.6rem 1.25rem;
-            background: rgba(99, 102, 241, 0.12);
-            border: 1px solid rgba(99, 102, 241, 0.25);
+            background: rgba(var(--accent-rgb), 0.12);
+            border: 1px solid rgba(var(--accent-rgb), 0.25);
             border-radius: 50px;
             font-size: 0.8rem;
             font-weight: 600;
@@ -256,7 +257,7 @@
         .btn-primary:hover {
             background: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 20px 50px rgba(var(--accent-rgb), 0.3);
         }
 
         .btn-secondary {
@@ -267,7 +268,7 @@
 
         .btn-secondary:hover {
             border-color: var(--accent);
-            background: rgba(99, 102, 241, 0.05);
+            background: rgba(var(--accent-rgb), 0.05);
         }
 
         /* Section Headers */
@@ -316,7 +317,8 @@
         .achievement-card:hover {
             border-color: var(--accent);
             transform: translateY(-8px);
-            background: rgba(99, 102, 241, 0.05);
+            background: rgba(var(--accent-rgb), 0.05);
+            box-shadow: 0 18px 40px rgba(var(--accent-rgb), 0.12);
         }
 
         .achievement-icon {
@@ -363,7 +365,7 @@
 
         .experience-item:hover {
             border-color: var(--accent);
-            background: rgba(99, 102, 241, 0.03);
+            background: rgba(var(--accent-rgb), 0.03);
         }
 
         .experience-header {
@@ -433,7 +435,7 @@
 
         .education-card:hover {
             border-color: var(--accent);
-            background: rgba(99, 102, 241, 0.04);
+            background: rgba(var(--accent-rgb), 0.04);
             transform: translateY(-6px);
         }
 
@@ -484,7 +486,7 @@
 
         .info-item:hover {
             border-color: var(--accent);
-            background: rgba(99, 102, 241, 0.04);
+            background: rgba(var(--accent-rgb), 0.04);
         }
 
         .info-name {
@@ -515,7 +517,7 @@
 
         .skill-group:hover {
             border-color: var(--accent);
-            background: rgba(99, 102, 241, 0.03);
+            background: rgba(var(--accent-rgb), 0.03);
         }
 
         .skill-group h3 {
@@ -549,7 +551,7 @@
 
         .project-item:hover {
             border-color: var(--accent);
-            background: rgba(99, 102, 241, 0.03);
+            background: rgba(var(--accent-rgb), 0.03);
             transform: translateX(8px);
         }
 
@@ -599,7 +601,7 @@
 
         .article-item:hover {
             border-color: var(--accent);
-            background: rgba(99, 102, 241, 0.03);
+            background: rgba(var(--accent-rgb), 0.03);
             transform: translateX(8px);
         }
 
@@ -645,9 +647,63 @@
             transform: translateX(4px);
         }
 
+        /* CVE Section */
+        .cve-list {
+            display: grid;
+            gap: 1.25rem;
+        }
+
+        .cve-item {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            padding: 1.5rem 1.75rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .cve-item:hover {
+            border-color: var(--accent);
+            background: rgba(var(--accent-rgb), 0.04);
+            transform: translateX(6px);
+            box-shadow: 0 14px 30px rgba(var(--accent-rgb), 0.12);
+        }
+
+        .cve-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border);
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+        }
+
+        .cve-icon img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+        }
+
+        .cve-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.35rem;
+        }
+
+        .cve-code {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
         /* Contact Section */
         #contact {
-            background: radial-gradient(ellipse at bottom, rgba(99, 102, 241, 0.08), transparent 50%);
+            background: radial-gradient(ellipse at bottom, rgba(var(--accent-rgb), 0.08), transparent 50%);
         }
 
         .contact-grid {
@@ -671,7 +727,7 @@
         .contact-card:hover {
             border-color: var(--accent);
             transform: translateY(-8px);
-            background: rgba(99, 102, 241, 0.05);
+            background: rgba(var(--accent-rgb), 0.05);
         }
 
         .contact-icon {
@@ -693,8 +749,8 @@
 
         .availability {
             padding: 2.5rem;
-            background: rgba(99, 102, 241, 0.08);
-            border: 1px solid rgba(99, 102, 241, 0.25);
+            background: rgba(var(--accent-rgb), 0.08);
+            border: 1px solid rgba(var(--accent-rgb), 0.25);
             border-radius: 16px;
             text-align: center;
         }
@@ -786,8 +842,9 @@
         <div class="nav-links">
             <a href="#hero" class="active">Home</a>
             <a href="#achievements">Achievements</a>
-            <a href="#education">Education</a>
+            <a href="#cves">CVEs</a>
             <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
             <a href="#skills">Skills</a>
             <a href="#articles">Articles</a>
             <a href="#projects">Projects</a>
@@ -839,11 +896,11 @@
                 <div class="achievements-grid">
                     <div class="achievement-card">
                         <i class="fas fa-shield-alt achievement-icon"></i>
-                        <div class="achievement-number">CVE</div>
-                        <h3 class="achievement-title">Published Vulnerabilities</h3>
+                        <div class="achievement-number">10</div>
+                        <h3 class="achievement-title">CVE Disclosures</h3>
                         <p class="achievement-description">
-                            Published CVE-2025-55319, CVE-2025-49136, and CVE-2025-52277. Contributed 
-                            auxiliary module for CVE-2025-49136 to Metasploit Framework.
+                            Disclosed 10 CVEs across VS Code, Grav CMS, Django, October CMS, listmonk, and YesWiki. 
+                            Authored a Metasploit auxiliary module for CVE-2025-49136.
                         </p>
                     </div>
 
@@ -858,22 +915,170 @@
                     </div>
 
                     <div class="achievement-card">
-                        <i class="fas fa-trophy achievement-icon"></i>
-                        <div class="achievement-number">Ranked</div>
+                        <i class="fas fa-medal achievement-icon"></i>
+                        <div class="achievement-number">MSRC #48</div>
                         <h3 class="achievement-title">Leaderboard Rankings</h3>
                         <p class="achievement-description">
-                            Ranked on 60 Microsoft MSRC Q3 2025 Leaderboard and on Google VRP 
-                            Honorable Mention Leaderboard.
+                            Microsoft MSRC Q3 2025 (#60) and Q4 2025 (#48) Leaderboards, plus Google VRP Honorable Mention.
                         </p>
                     </div>
 
                     <div class="achievement-card">
-                        <i class="fas fa-pen achievement-icon"></i>
+                        <i class="fas fa-code-branch achievement-icon"></i>
                         <div class="achievement-number">2</div>
-                        <h3 class="achievement-title">Technical Writings</h3>
+                        <h3 class="achievement-title">Metasploit Modules</h3>
                         <p class="achievement-description">
-                            Published two technical articles on cybersecurity topics, sharing practical approaches and personal experiences in security research. Committed to contributing knowledge and insights to the community.
+                            Built a listmonk auxiliary module and a Grav CMS chain module that combines two CVEs.
                         </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CVEs Section -->
+        <section id="cves">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">Disclosure</div>
+                    <h2 class="section-title">CVE List</h2>
+                    <p class="section-description">
+                        Here's a list of all disclosed vulnerabilities I discovered.
+                    </p>
+                </div>
+
+                <div class="cve-list">
+                    <div class="cve-item">
+                        <div class="cve-icon"><img src="./icons/django-icon.svg" alt="Django"></div>
+                        <div>
+                            <div class="cve-title">Django: SQL Injection in RasterField Band Index Parameter</div>
+                            <div class="cve-code">CVE-2026-1207</div>
+                        </div>
+                    </div>
+
+                    <div class="cve-item">
+                        <div class="cve-icon"><img src="./icons/grav.png" alt="Grav"></div>
+                        <div>
+                            <div class="cve-title">Grav: Broken Access Control in Form Modification</div>
+                            <div class="cve-code">CVE-2025-66301</div>
+                        </div>
+                    </div>
+
+                    <div class="cve-item">
+                        <div class="cve-icon"><img src="./icons/grav.png" alt="Grav"></div>
+                        <div>
+                            <div class="cve-title">Grav: Remote Code Execution via SSTI through Twig Sandbox Bypass</div>
+                            <div class="cve-code">CVE-2025-66294</div>
+                        </div>
+                    </div>
+
+                    <div class="cve-item">
+                        <div class="cve-icon"><img src="./icons/vscode.png" alt="Visual Studio Code"></div>
+                        <div>
+                            <div class="cve-title">VS Code & GitHub Copilot: Improper Access Control Leading to Remote Code Execution</div>
+                            <div class="cve-code">CVE-2025-64660</div>
+                        </div>
+                    </div>
+
+                    <div class="cve-item">
+                        <div class="cve-icon"><img src="./icons/Visual_Studio_Icon_2022.svg.png" alt="Visual Studio"></div>
+                        <div>
+                            <div class="cve-title">Visual Studio: Command Injection Leading to Local Code Execution</div>
+                            <div class="cve-code">CVE-2025-62214</div>
+                        </div>
+                    </div>
+
+                    <div class="cve-item">
+                        <div class="cve-icon"><img src="./icons/October_CMS_leaf_logo.svg.png" alt="October CMS"></div>
+                        <div>
+                            <div class="cve-title">October CMS: Stored XSS via Branding Styles</div>
+                            <div class="cve-code">CVE-2025-61676</div>
+                        </div>
+                    </div>
+
+                    <div class="cve-item">
+                        <div class="cve-icon"><img src="./icons/October_CMS_leaf_logo.svg.png" alt="October CMS"></div>
+                        <div>
+                            <div class="cve-title">October CMS: Stored XSS via Editor Settings</div>
+                            <div class="cve-code">CVE-2025-61674</div>
+                        </div>
+                    </div>
+
+                    <div class="cve-item">
+                        <div class="cve-icon"><img src="./icons/vscode.png" alt="Visual Studio Code"></div>
+                        <div>
+                            <div class="cve-title">VS Code & Agentic AI: Command Injection Leading to Remote Code Execution</div>
+                            <div class="cve-code">CVE-2025-55319</div>
+                        </div>
+                    </div>
+
+                    <div class="cve-item">
+                        <div class="cve-icon"><img src="./icons/UnBeauLogoPourYeswiki_yeswiki-logo_vignette_900_1200.png" alt="YesWiki"></div>
+                        <div>
+                            <div class="cve-title">YesWiki: Stored Cross-Site Scripting Vulnerability</div>
+                            <div class="cve-code">CVE-2025-52277</div>
+                        </div>
+                    </div>
+
+                    <div class="cve-item">
+                        <div class="cve-icon"><img src="./icons/listmonk.png" alt="Listmonk"></div>
+                        <div>
+                            <div class="cve-title">Listmonk: Sprig Template Injection Leads to Environment Variable Disclosure</div>
+                            <div class="cve-code">CVE-2025-49136</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">Career</div>
+                    <h2 class="section-title">Experience</h2>
+                </div>
+
+                <div class="experience-list">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title-group">
+                                <h3>Cybersecurity Intern</h3>
+                                <div class="experience-company">Evidence Way, Casablanca</div>
+                            </div>
+                            <div class="experience-date">Mar 2025 – Apr 2025</div>
+                        </div>
+                        <div class="experience-description">
+                            <div>Hardened Docker, Kubernetes, and Nginx using CIS benchmarks</div>
+                            <div>Integrated automated vulnerability scanning into CI/CD pipelines</div>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title-group">
+                                <h3>Manager of Intern Solutions Team</h3>
+                                <div class="experience-company">Microtech Leaders, Chicago (Remote)</div>
+                            </div>
+                            <div class="experience-date">Sep 2024 – Jan 2025</div>
+                        </div>
+                        <div class="experience-description">
+                            <div>Assessed and benchmarked cybersecurity solutions for business needs</div>
+                            <div>Led team development of training programs and secure testing environments</div>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title-group">
+                                <h3>Cybersecurity Intern</h3>
+                                <div class="experience-company">CIH Bank, Casablanca</div>
+                            </div>
+                            <div class="experience-date">Feb 2024</div>
+                        </div>
+                        <div class="experience-description">
+                            <div>Deployed Wazuh SIEM XDR with Suricata IDS for threat detection</div>
+                            <div>Configured MISP CTI and developed threat hunting tool</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -934,60 +1139,6 @@
                         <div class="info-item">
                             <div class="info-name">English</div>
                             <div class="info-level">Fluent • Linguaskill C1</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-label">Career</div>
-                    <h2 class="section-title">Experience</h2>
-                </div>
-
-                <div class="experience-list">
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div class="experience-title-group">
-                                <h3>Cybersecurity Intern</h3>
-                                <div class="experience-company">Evidence Way, Casablanca</div>
-                            </div>
-                            <div class="experience-date">Mar 2025 – Apr 2025</div>
-                        </div>
-                        <div class="experience-description">
-                            <div>Hardened Docker, Kubernetes, and Nginx using CIS benchmarks</div>
-                            <div>Integrated automated vulnerability scanning into CI/CD pipelines</div>
-                        </div>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div class="experience-title-group">
-                                <h3>Manager of Intern Solutions Team</h3>
-                                <div class="experience-company">Microtech Leaders, Chicago (Remote)</div>
-                            </div>
-                            <div class="experience-date">Sep 2024 – Jan 2025</div>
-                        </div>
-                        <div class="experience-description">
-                            <div>Assessed and benchmarked cybersecurity solutions for business needs</div>
-                            <div>Led team development of training programs and secure testing environments</div>
-                        </div>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div class="experience-title-group">
-                                <h3>Cybersecurity Intern</h3>
-                                <div class="experience-company">CIH Bank, Casablanca</div>
-                            </div>
-                            <div class="experience-date">Feb 2024</div>
-                        </div>
-                        <div class="experience-description">
-                            <div>Deployed Wazuh SIEM XDR with Suricata IDS for threat detection</div>
-                            <div>Configured MISP CTI and developed threat hunting tool</div>
                         </div>
                     </div>
                 </div>
